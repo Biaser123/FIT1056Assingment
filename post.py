@@ -1,43 +1,50 @@
-# 创建一个帖子类
-from datetime import datetime
 
-from main import user1
+from datetime import datetime
+from user import User
 
 
 class Post:
-    def __init__(self, author, title, content):
-        self.author = author
+    posts = {}
+    next_post_id = 1
+
+    def __init__(self, post_id, user, title, content):
+        self.post_id = post_id
+        self.user = user
         self.title = title
         self.content = content
         self.comments = []
 
-    def add_comment(self, comments):
-        self.comments.append(comments)
+        Post.posts[post_id] = self
 
 
-# 创建一个评论类
 class Comment:
-    def __init__(self, user, text):
-        self.user = user
-        self.text = text
-        self.timestamp = datetime.now()
+    comments = {}
+    next_comment_id = 1
 
+    def __init__(self, comment_id, user, post, content):
+        self.comment_id = comment_id
+        self.user = user
+        self.post = post
+        self.content = content
+
+        Comment.comments[comment_id] = self
+
+
+user_test = User(1, "Alice", "Doe", "alice_user", "password123", "alice@example.com", "Student")
 
 # create post
-post1 = Post(user1, "Introduction", "Welcome to the discussion forum!")
+post1 = user_test.create_post("Introduction", "Welcome to the discussion forum!")
 
-# add comment to the post
-comment1 = Comment(user1, "Great forum!")
-comment2 = Comment(user1, "I have a question.")
-post1.add_comment(comment1)
-post1.add_comment(comment2)
+# add comment to post
+comment1 = user_test.create_comment(post1, "Great forum!")
+comment2 = user_test.create_comment(post1, "I have a question!")
 
 # test
-print(f"Author: {post1.author.username}")
+print(f"Author: {post1.user.username}")
 print(f"Title: {post1.title}")
 print(f"Content: {post1.content}")
 print("Comments:")
 for comment in post1.comments:
     print(f"- User: {comment.user.username}")
-    print(f"  Comment: {comment.text}")
-    print(f"  Timestamp: {comment.timestamp}")
+    print(f"  Comment: {comment.content}")
+

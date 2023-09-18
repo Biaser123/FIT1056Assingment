@@ -28,6 +28,9 @@ class User:
         self.is_logged_in = False
         # profile data (Wei Lu)
         self.profile_data = {}
+        # post and comments
+        self.posts = []
+        self.comments = []
 
         User.users[username] = self
 
@@ -61,7 +64,19 @@ class User:
         else:
             print(f"You are not currently logged in.")
 
+    def add_profile_data(self, key, value):
+        self.profile_data[key] = value
 
-def add_profile_data(self, key, value):
-    self.profile_data[key] = value
+    def create_post(self, post_title, post_content):
+        from post import Post
 
+        post = Post(len(self.posts) + 1, self, post_title, post_content)
+        self.posts.append(post)
+        return post
+
+    def create_comment(self, post, comment_content):
+        from post import Comment
+        comment = Comment(len(self.comments) + 1, self, post, comment_content)
+        post.comments.append(comment)
+        self.comments.append(comment)
+        return comment
