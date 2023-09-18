@@ -87,8 +87,9 @@ class ProgressTracker:
         except FileNotFoundError:
             print("No backup data file found.")
 
+
 if __name__ == "__main__":
-# Example usage:
+    # Example usage:
     progress_tracker = ProgressTracker()
 
     student1 = Student(1, "Alice", 12)

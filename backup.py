@@ -6,10 +6,12 @@ class User:
         self.username = username
         self.email = email
 
+
 class File:
     def __init__(self, filename, content):
         self.filename = filename
         self.content = content
+
 
 class CloudStorage():
     def __init__(self):
@@ -29,8 +31,6 @@ class CloudStorage():
     def list_files(self, user):
         user_files = [file for file in self.files if user.username == file.filename]
         return user_files
-
-
 
 
 if __name__ == "__main__":

@@ -11,6 +11,8 @@
 #         Methods: login(self, entered_password)
 #                  logout(self)
 #                  """
+
+
 class User:
     users = {}
     next_user_id = 1
@@ -24,8 +26,10 @@ class User:
         self.email = email
         self.role = role
         self.is_logged_in = False
-        User.users[username] = self
+        # profile data (Wei Lu)
+        self.profile_data = {}
 
+        User.users[username] = self
 
     @classmethod
     # This function create user account
@@ -37,7 +41,7 @@ class User:
         cls.next_user_id += 1
         user = cls(user_id, first_name, last_name, username, password, email, role)
         return user
-    
+
     # This function allows user for logging in
     def login(self, entered_password):
         if self.password == entered_password:
@@ -56,4 +60,8 @@ class User:
             print(f"Goodbye, {self.first_name} {self.last_name}!")
         else:
             print(f"You are not currently logged in.")
+
+
+def add_profile_data(self, key, value):
+    self.profile_data[key] = value
 

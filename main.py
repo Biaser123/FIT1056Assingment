@@ -39,7 +39,6 @@
 #     codeventure.logout(logged_in_admin)
 
 
-
 from teacher import Teacher
 from student import Student
 from Admin import Admin
@@ -56,14 +55,14 @@ from backup import CloudStorage
 #         print("2. Login")
 #         print("3. Logout")
 #         print("4. Exit")
-        
+
 #         choice = input("Select an option (1/2/3/4): ")
-        
+
 #         if choice == "1":
 #             register()
 #         elif choice == "2":
 #             login()
-            
+
 #         elif choice == "3":
 #             logout()
 #         elif choice == "4":
@@ -97,7 +96,7 @@ from backup import CloudStorage
 # def login():
 #     username = input("Enter Username: ")
 #     password = input("Enter Password: ")
-    
+
 #     if username in User.users:
 #         user = User.users[username]
 #         user.login(password)
@@ -106,7 +105,7 @@ from backup import CloudStorage
 
 # def logout():
 #     username = input("Enter Username: ")
-    
+
 #     if username in User.users:
 #         user = User.users[username]
 #         user.logout()
@@ -117,12 +116,10 @@ from backup import CloudStorage
 #     main()
 
 
-
-
 # User registration
 teacher1 = Teacher.create_user("John", "Smith", "MrSmith", "teacherpass", "mrsmith@example.com", "Teacher")
 student1 = Student.create_user("Alice", "Doe", "Alice", "password123", "alice@example.com", "Student")
-student2= Student.create_user("Bob","Farrell","Bob","pass5555","bob@example.com", "Student")
+student2 = Student.create_user("Bob", "Farrell", "Bob", "pass5555", "bob@example.com", "Student")
 print(student1.username)
 # Attempt to log out when not logged in
 teacher1.logout()  # Should print: "You are not currently logged in."
@@ -148,4 +145,3 @@ cloud_storage.upload_file(user2, "MyGame.py", "print('Welcome to My Game!')")
 user1_files = cloud_storage.list_files(user1)
 for file in user1_files:
     print(f"File '{file.filename}' contents: {file.content}")
-
