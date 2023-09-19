@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="base function, create post, create comment imp (WEi Lu)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contentFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/contentFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="content filter function update">
+      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,12 +102,29 @@
       <option name="project" value="LOCAL" />
       <updated>1695077202349</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="content filter function update">
+      <option name="closed" value="true" />
+      <created>1695159725961</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695159725962</updated>
+    </task>
+    <task id="LOCAL-00008" summary="content filter function update">
+      <option name="closed" value="true" />
+      <created>1695159742683</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695159742683</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create" />
     <MESSAGE value="base function for 4 req (WEi Lu)" />
-    <option name="LAST_COMMIT_MESSAGE" value="base function for 4 req (WEi Lu)" />
+    <MESSAGE value="content filter function update" />
+    <option name="LAST_COMMIT_MESSAGE" value="content filter function update" />
   </component>
 </project>
