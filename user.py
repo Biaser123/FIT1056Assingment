@@ -70,13 +70,13 @@ class User:
     def create_post(self, post_title, post_content):
         from post import Post
 
-        post = Post(len(self.posts) + 1, self, post_title, post_content)
+        post = Post(self, post_title, post_content)
         self.posts.append(post)
         return post
 
     def create_comment(self, post, comment_content):
         from post import Comment
-        comment = Comment(len(self.comments) + 1, self, post, comment_content)
+        comment = Comment(self, post, comment_content)
         post.comments.append(comment)
         self.comments.append(comment)
         return comment
