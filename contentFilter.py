@@ -7,6 +7,12 @@ class ContentFilter:
             content = content.replace(word, '*' * len(word))
         return content
 
+    def update_banned_words(self, new_banned_words):
+        self.banned_words = new_banned_words
+
+    def get_banned_words(self):
+        return self.banned_words
+
 
 # create
 banned_words = ["bad", "hate", "spam"]
@@ -21,3 +27,5 @@ print("Original Text:")
 print(text)
 print("Filtered Text:")
 print(filtered_text)
+
+print(banned_words)
