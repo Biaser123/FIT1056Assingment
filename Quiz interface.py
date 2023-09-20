@@ -11,13 +11,13 @@ class Quiz:
 
     quizzes = []
 
-    def __init__(self, topic, status = "incomplete"):
+    def __init__(self, topic):
         self.questionList = []
         self.question_index = 0
         self.results = 0
         self.startup = 0
         self.topic = topic
-        self.status = status
+        self.status = "incomplete"
 
         quizzes.append(self)
 
