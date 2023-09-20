@@ -8,11 +8,13 @@ class Question:
         return user_answer == self.answer
 
 class Quiz:
-    def __init__(self):
+    def __init__(self, topic, status = "incomplete"):
         self.questionList = []
         self.question_index = 0
         self.results = 0
         self.startup = 0
+        self.topic = topic
+        self.status = status
 
     def add_question(self, question):
         self.questionList.append(question)
@@ -28,6 +30,11 @@ class Quiz:
 
     def is_quiz_finished(self):
         return self.question_index >= len(self.questionList)
+
+    def update_quiz_status(self):
+        if self.is_quiz_finished():
+            self.status = 'complete'
+            return self.status
 
     def start_quiz(self):
         if self.startup != 0:
