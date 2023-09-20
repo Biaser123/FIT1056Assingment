@@ -20,7 +20,7 @@ class Quiz:
         self.status = status
 
         quizzes.append(self)
-        
+
 
     def add_question(self, question):
         self.questionList.append(question)
