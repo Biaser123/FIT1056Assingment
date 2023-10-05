@@ -2,6 +2,7 @@ import tkinter as tk
 
 # Local application imports
 from authenticator import Authenticator
+from mainpage import MainPage
 
 
 class LoginFrame(tk.Frame):
@@ -56,7 +57,7 @@ class LoginFrame(tk.Frame):
         # Button to login
         login_button = tk.Button(master=self, text="Login",
                                  command=self.authenticate_login)
-        login_button.grid(row=4, column=0, columnspan=2,padx=10, pady=10)
+        login_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
 
         # Button to register
         login_button = tk.Button(master=self, text="Register",
@@ -69,15 +70,18 @@ class LoginFrame(tk.Frame):
         login_text_label.grid(row=5, columnspan=2, padx=10, pady=10)
 
     def authenticate_login(self):
-        """
-        Frontend function for the authentication procedure.
-        This is invoked when the login button is clicked.
-        :return: None
-        """
         authenticator = Authenticator()
-        if authenticator.authenticate(self.username.get(),
-                                      self.password.get()):
+        if authenticator.authenticate(self.username.get(), self.password.get()):
             self.login_text.set("Login successfully!")
+
+            # Create the main page window with the same size as the login window
+            main_page_window = tk.Toplevel(self.master)
+            main_page_window.geometry(self.master.geometry())  # Set the same size as the login window
+            main_page = MainPage(main_page_window)
+
+            # Hide the login page window
+            self.master.withdraw()
+
         else:
             self.login_text.set("Failed to login")
 

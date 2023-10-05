@@ -1,4 +1,6 @@
 from user import User
+
+
 class CodeVenture(User):
     def __init__(self):
         self.users = {}
