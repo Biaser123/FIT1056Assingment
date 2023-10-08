@@ -1,9 +1,14 @@
+"""
+FIT1056 Problem Solving Tasks for Week 09
+"""
+
+# Local application imports
 from user import User
 
 
 class Authenticator:
 
-    def __init__(self, file_path="./data/userfile.txt"):
+    def __init__(self, file_path="./registered_users.txt"):
         self.file_path = file_path
         self.users = []
         self.load_users()
@@ -19,12 +24,19 @@ class Authenticator:
                 for line in users_lines:
                     (username,
                      password,
+                     first_name,
+                     last_name,
+                     email,
                      role,
                      is_active) = line.strip().split(",")
-                    user_obj = User(username=username,
-                                    password=password,
-                                    role=role,
-                                    is_active=bool(is_active))
+                    user_obj = User(
+                        username=username,
+                        password=password,
+                        first_name=first_name,
+                        last_name=last_name,
+                        email=email,
+                        role=role,
+                        is_active=bool(is_active))
                     self.users.append(user_obj)
             return True
         except FileNotFoundError:
@@ -44,7 +56,7 @@ class Authenticator:
                 if (user_obj.get_password() == input_password
                         and user_obj.get_is_active()):
                     # Passwords match and account is active
-                    return True
+                    return user_obj
                 else:
                     # Authentication fails or account is no longer active
                     return False

@@ -1,6 +1,7 @@
 import time
 import random
 
+
 class NotificationSystem:
     def __init__(self):
         self.notifications = [
@@ -19,6 +20,7 @@ class NotificationSystem:
         while True:
             self.notification_alert()
             time.sleep(2)
+
 
 if __name__ == "__main__":
     notification_system = NotificationSystem()
