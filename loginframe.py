@@ -96,16 +96,16 @@ class LoginFrame(tk.Frame):
         # First name label and Entry
         firstname_label = tk.Label(self.registration_window, text= "First name:")
         firstname_label.grid(row=1, column=0, sticky=tk.E, padx=10, pady=10)
-        self.first_name = tk.StringVar()
-        self.first_name = tk.Entry(self.registration_window,textvariable= self.first_name)
-        self.first_name.grid(row=1, column=1, sticky =tk.W, padx=10, pady=10 )
+        self.first_name_reg = tk.StringVar()
+        self.first_name_reg = tk.Entry(self.registration_window,textvariable= self.first_name_reg)
+        self.first_name_reg.grid(row=1, column=1, sticky =tk.W, padx=10, pady=10 )
 
         # Last name label and Entry
         lastname_label = tk.Label(self.registration_window, text= "Last Name:")
         lastname_label.grid(row=2, column=0, sticky=tk.E, padx=10, pady=10)
-        self.last_name = tk.StringVar()
-        self.last_name = tk.Entry(self.registration_window,textvariable= self.last_name)
-        self.last_name.grid(row=2, column=1, sticky =tk.W, padx=10, pady=10 )
+        self.last_name_reg = tk.StringVar()
+        self.last_name_reg = tk.Entry(self.registration_window,textvariable= self.last_name_reg)
+        self.last_name_reg.grid(row=2, column=1, sticky =tk.W, padx=10, pady=10 )
 
         # dob_label = tk.Label(self.registration_window, text= "Date of Birth:")
         # dob_label.grid(row=3, column=0, sticky=tk.E, padx=10, pady=10)
@@ -117,32 +117,32 @@ class LoginFrame(tk.Frame):
         # Username Label and Entry
         username_label = tk.Label(self.registration_window, text= "Username:")
         username_label.grid(row=4, column=0, sticky=tk.E, padx=10, pady=10)
-        self.username = tk.StringVar()
-        self.username = tk.Entry(self.registration_window,textvariable= self.username)
-        self.username.grid(row=4, column=1, sticky =tk.W, padx=10, pady=10 )
+        self.username_reg = tk.StringVar()
+        self.username_reg = tk.Entry(self.registration_window,textvariable= self.username_reg)
+        self.username_reg.grid(row=4, column=1, sticky =tk.W, padx=10, pady=10 )
 
         #Password Label and Entry
         password_label = tk.Label(self.registration_window, text= "Password:")
         password_label.grid(row=5, column=0, sticky=tk.E, padx=10, pady=10)
-        self.password = tk.StringVar()
-        self.password = tk.Entry(self.registration_window,textvariable= self.password,show="*")
-        self.password.grid(row=5, column=1, sticky =tk.W, padx=10, pady=10 )
+        self.password_reg = tk.StringVar()
+        self.password_reg = tk.Entry(self.registration_window,textvariable= self.password_reg,show="*")
+        self.password_reg.grid(row=5, column=1, sticky =tk.W, padx=10, pady=10 )
 
         # Email Label and Entry
         email_label = tk.Label(self.registration_window, text= "Email:")
         email_label.grid(row=6, padx=10, pady=10)
-        self.email = tk.StringVar()
-        self.email = tk.Entry(self.registration_window,textvariable= self.email)
-        self.email.grid(row=6, column=1, padx=10, pady=10 )
+        self.email_reg = tk.StringVar()
+        self.email_reg = tk.Entry(self.registration_window,textvariable= self.email_reg)
+        self.email_reg.grid(row=6, column=1, padx=10, pady=10 )
 
         #Role Label and Entry
-        self.role = tk.StringVar()
-        self.role.set("")
+        self.role_reg = tk.StringVar()
+        self.role_reg.set("")
         role_label = tk.Label(self.registration_window, text= "Role:")
         role_label.grid(row= 7, padx =10, pady=10)
-        student_role= tk.Radiobutton(self.registration_window, variable= self.role, text = "Student", value ="Student")
+        student_role= tk.Radiobutton(self.registration_window, variable= self.role_reg, text = "Student", value ="Student")
         student_role.grid(row=7, column=1)
-        teacher_role = tk.Radiobutton(self.registration_window, variable= self.role, text = "Teacher", value ="Teacher")
+        teacher_role = tk.Radiobutton(self.registration_window, variable= self.role_reg, text = "Teacher", value ="Teacher")
         teacher_role.grid(row=7, column=2)
 
     def registration_page_open(self):
@@ -150,19 +150,19 @@ class LoginFrame(tk.Frame):
         self.registration_window.deiconify()
 
     def register_function(self):
-        self.first_name= self.first_name.get()
-        self.last_name= self.last_name.get()
-        self.username= self.username.get()
-        self.password =self.password.get()
-        self.email = self.email.get()
-        self.role = self.role.get()
+        self.first_name_reg= self.first_name_reg.get()
+        self.last_name_reg= self.last_name_reg.get()
+        self.username_reg= self.username_reg.get()
+        self.password_reg =self.password_reg.get()
+        self.email_reg = self.email_reg.get()
+        self.role_reg = self.role_reg.get()
 
-        if not self.username or not self.password or not self.last_name or not self.first_name or not self.role:
+        if not self.username_reg or not self.password_reg or not self.last_name_reg or not self.first_name_reg or not self.role_reg:
             messagebox.showerror("Error", "Please fill in all fields.")
             return
     
         with open("registered_users.txt","a") as file:
-            file.write(f"{self.username},{self.password},{self.first_name},{self.last_name},{self.email},{self.role},{'1'}\n")
+            file.write(f"{self.username_reg},{self.password_reg},{self.first_name_reg},{self.last_name_reg},{self.email_reg},{self.role_reg},{'1'}\n")
 
         messagebox.showinfo(message="Registration Succesfully Saved.")
         self.registration_window.withdraw()
