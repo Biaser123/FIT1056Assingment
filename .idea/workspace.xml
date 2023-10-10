@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="login, logout, all main page for the 3 diff roles">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
       <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
     </list>
@@ -222,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696920319744</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1696937170147</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696937170147</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1696937178509</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696937178509</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -236,6 +251,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
     <MESSAGE value="forum system imp.  But there's a bug when saving the data(cant figure out)" />
     <MESSAGE value="login, logout, all main page for the 3 diff roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="login, logout, all main page for the 3 diff roles" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>
 </project>
