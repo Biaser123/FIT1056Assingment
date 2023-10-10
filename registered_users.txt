@@ -1,2 +1,3 @@
-WeiLu,123611,asdaafda,adf,asdfa,Student,1
-Biaser,123611,asdf,adf,asdfa,Student,1
+admin,admin,asdf,adf,asdfa,Admin,1
+student,student,123,132,@qs,Student,1
+teacher,teacher,teacher,teacher,@qs,Teacher,1

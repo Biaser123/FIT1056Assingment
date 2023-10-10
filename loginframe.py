@@ -4,8 +4,10 @@ from tkinter import messagebox
 import time
 
 from StudentFrame import StudentFrame
+from adminFrame import AdminFrame
 # Local application imports
 from authenticator import Authenticator
+from teacherFrame import TeacherFrame
 from user import User
 
 
@@ -184,7 +186,25 @@ class LoginFrame(tk.Frame):
                 student_frame = StudentFrame(self.master)
                 student_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-            elif auth_res.get_role() in ["Admin", "Teacher"]:
-                self.login_text.set("Login successfully!")
+            elif auth_res.get_role() == "Teacher":
+
+                self.login_text.set("Login successfully as Teacher!")
+
+                self.place_forget()
+
+                teacher_frame = TeacherFrame(self.master)
+
+                teacher_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+            elif auth_res.get_role() == "Admin":
+
+                self.login_text.set("Login successfully as Admin!")
+
+                self.place_forget()
+
+                admin_frame = AdminFrame(self.master)
+
+                admin_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         else:
             self.login_text.set("Failed to login")
+
