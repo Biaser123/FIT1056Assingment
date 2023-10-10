@@ -183,7 +183,7 @@ class LoginFrame(tk.Frame):
             if auth_res.get_role() == "Student":  # Student login
                 self.login_text.set("Login successfully as Student!")
                 self.place_forget()
-                student_frame = StudentFrame(self.master)
+                student_frame = StudentFrame(auth_res, self.master)
                 student_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
             elif auth_res.get_role() == "Teacher":
@@ -192,7 +192,7 @@ class LoginFrame(tk.Frame):
 
                 self.place_forget()
 
-                teacher_frame = TeacherFrame(self.master)
+                teacher_frame = TeacherFrame(auth_res, self.master)
 
                 teacher_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
@@ -202,9 +202,8 @@ class LoginFrame(tk.Frame):
 
                 self.place_forget()
 
-                admin_frame = AdminFrame(self.master)
+                admin_frame = AdminFrame(auth_res, self.master)
 
                 admin_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         else:
             self.login_text.set("Failed to login")
-

@@ -4,6 +4,9 @@ from mainPageFrame import MainPageFrame
 
 
 class AdminFrame(MainPageFrame):
+    def __init__(self, user, master=None):
+        super().__init__(user, master)
+
     def create_widgets(self):
         super().create_widgets()
         content_filter_button = tk.Button(self, text="Content Filter")

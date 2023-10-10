@@ -2,9 +2,10 @@ import tkinter as tk
 
 
 class MainPageFrame(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, user, master=None):
         super().__init__(master)
         self.master = master
+        self.user = user
         self.pack()
         self.create_widgets()
         self.add_logout_button()
