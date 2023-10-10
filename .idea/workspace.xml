@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="main page">
-      <change afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/Notifications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticator.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticator.py" afterDir="false" />
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py">
+      <change afterPath="$PROJECT_DIR$/adminFrame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainPageFrame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teacherFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loginframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginframe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainpage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python-5-128.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/python-5-128.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registered_users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/registered_users.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="ineddieble51 &lt;144681994+ineddieble51@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master_WeILu" />
@@ -55,8 +59,8 @@
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject" />
+      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\data" />
     </key>
   </component>
@@ -165,7 +169,31 @@
       <option name="project" value="LOCAL" />
       <updated>1696495445022</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration">
+      <option name="closed" value="true" />
+      <created>1696826380854</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696826380854</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration">
+      <option name="closed" value="true" />
+      <created>1696826389667</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696826389667</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py">
+      <option name="closed" value="true" />
+      <created>1696826487810</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1696826487810</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -175,6 +203,8 @@
     <MESSAGE value="post edit function update" />
     <MESSAGE value="interface" />
     <MESSAGE value="main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="main page" />
+    <MESSAGE value="Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
   </component>
 </project>
