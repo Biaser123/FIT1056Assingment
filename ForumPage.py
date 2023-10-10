@@ -144,11 +144,11 @@ class ForumPage(tk.Frame):
         with open("forum_data.txt", "w") as file:
             for post_id, post in Post.posts.items():
 
-                file.write(f"Post,{post_id},{post.title},{post.content},{post.user.username},\n")
+                file.write(f"Post,{post_id},{post.title},{post.content},{post.user.username}\n")
 
             for comment_id, comment in Comment.comments.items():
 
-                file.write(f"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content},\n")
+                file.write(f"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content}\n")
 
     def load_data_from_file(self):
         try:

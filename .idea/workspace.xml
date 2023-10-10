@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py">
-      <change afterPath="$PROJECT_DIR$/adminFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainPageFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teacherFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginframe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registered_users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/registered_users.txt" afterDir="false" />
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="login, logout, all main page for the 3 diff roles">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +190,39 @@
       <option name="project" value="LOCAL" />
       <updated>1696826487810</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="login, logout, all main page for the 3 diff roles">
+      <option name="closed" value="true" />
+      <created>1696913835611</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1696913835611</updated>
+    </task>
+    <task id="LOCAL-00017" summary="login, logout, all main page for the 3 diff roles">
+      <option name="closed" value="true" />
+      <created>1696913841929</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696913841929</updated>
+    </task>
+    <task id="LOCAL-00018" summary="login, logout, all main page for the 3 diff roles">
+      <option name="closed" value="true" />
+      <created>1696920308873</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1696920308873</updated>
+    </task>
+    <task id="LOCAL-00019" summary="login, logout, all main page for the 3 diff roles">
+      <option name="closed" value="true" />
+      <created>1696920319744</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1696920319744</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -205,6 +234,8 @@
     <MESSAGE value="main page" />
     <MESSAGE value="Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
+    <MESSAGE value="forum system imp.  But there's a bug when saving the data(cant figure out)" />
+    <MESSAGE value="login, logout, all main page for the 3 diff roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="login, logout, all main page for the 3 diff roles" />
   </component>
 </project>
