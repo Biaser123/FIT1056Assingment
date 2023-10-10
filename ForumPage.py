@@ -143,27 +143,21 @@ class ForumPage(tk.Frame):
     def save_data_to_file(self):
         with open("forum_data.txt", "w") as file:
             for post_id, post in Post.posts.items():
-
-                file.write(f"Post,{post_id},{post.title},{post.content},{post.user.username}\n")
+                file.write(f"Post,{post_id},{post.title},{post.content.strip()},{post.user.username}\n")
 
             for comment_id, comment in Comment.comments.items():
-
                 file.write(f"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content}\n")
 
     def load_data_from_file(self):
-        try:
-            with open("forum_data.txt", "r") as file:
-                lines = file.readlines()
-                for line in lines:
-                    parts = line.strip().split(",")
-                    if parts[0] == "Post":
-                        post_id, title, content, username = parts[1:]
-                        self.user.create_post(title, content, username=username)
-                    elif parts[0] == "Comment":
-                        comment_id, username, post_id, content = parts[1:]
-                        post = Post.posts.get(int(post_id))
-                        if post:
-                            self.user.create_comment(post, content, username=username)
-
-        except FileNotFoundError:
-            pass
+        with open("forum_data.txt", "r") as file:
+            lines = file.readlines()
+            for line in lines:
+                parts = line.strip().split(",")
+                if parts[0] == "Post":
+                    post_id, title, content, username = parts[1:]
+                    self.user.create_post(title, content, username=username)
+                elif parts[0] == "Comment":
+                    comment_id, username, post_id, content = parts[1:]
+                    post = Post.posts.get(int(post_id))
+                    if post:
+                        self.user.create_comment(post, content, username=username)
