@@ -1,0 +1,1 @@
+solutions = {"challenge 1": """print("Hi, my nmae is Python, nice to meet you")"""}
