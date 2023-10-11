@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
-      <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChallengePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChallengePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saved_answers.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +241,31 @@
       <option name="project" value="LOCAL" />
       <updated>1696937178509</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1696981682637</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1696981682637</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1696981689613</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1696981689613</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1696981695196</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1696981695196</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -251,6 +279,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py" />
     <MESSAGE value="forum system imp.  But there's a bug when saving the data(cant figure out)" />
     <MESSAGE value="login, logout, all main page for the 3 diff roles" />
+    <MESSAGE value="fix a bug for data saving" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>

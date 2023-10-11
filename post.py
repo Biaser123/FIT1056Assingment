@@ -1,7 +1,4 @@
 
-from datetime import datetime
-
-
 class Post:
     posts = {}
     next_post_id = 1
@@ -44,9 +41,3 @@ class Comment:
     def get_comments_for_post(post):
         comments = [comment_get for comment_get in Comment.comments.values() if comment_get.post == post]
         return comments
-
-
-
-
-
-
