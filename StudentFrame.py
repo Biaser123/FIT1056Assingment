@@ -47,6 +47,6 @@ class StudentFrame(MainPageFrame):
         challenge_window.title("Challenge")
 
         challenge_page = ChallengePage(challenge_window, user =self.user)
-        challenge_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+        challenge_page.pack()
 
         # self.place_forget()
