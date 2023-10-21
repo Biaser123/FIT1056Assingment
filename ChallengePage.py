@@ -9,7 +9,7 @@ class ChallengePage(tk.Frame):
         
         # Create module buttons
         challenge_label = tk.Label(self.master, text = module_1['challenge'], font = ("Arial Bold",15))
-        challenge_label.grid(row =0, column = 0 ,sticky= tk.E, padx =10, pady=10)
+        challenge_label.grid(row =0, columnspan = 2 ,sticky= tk.E, padx =10, pady=10)
 
         challenge1_label = tk.Label(self.master, text = "Challenge 1 Answer Box:", font = ("Arial",12))
         challenge1_label.grid(row =1, column = 0 ,sticky= tk.E, padx =10, pady=10)
@@ -19,7 +19,7 @@ class ChallengePage(tk.Frame):
         self.challenge_entry.grid(row=1, column= 1, sticky=tk.W, padx=10, pady=10)
 
         submit_button = tk.Button(self.master, text= "Submit", command= self.check_answers)
-        submit_button.grid(row=2)
+        submit_button.grid(row=2, column=1)
 
     def check_answers(self):
         answer = self.challenge_var.get()
