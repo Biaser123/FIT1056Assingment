@@ -29,7 +29,7 @@ class StudentFrame(MainPageFrame):
         forum_window.title("Forum")
 
         forum_page = ForumPage(forum_window, user=self.user)
-        forum_page.pack()
+        forum_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
         # self.place_forget()
 
@@ -38,7 +38,7 @@ class StudentFrame(MainPageFrame):
         module_window.title("Learning Module")
 
         module_page = LearningModulePage(module_window, user=self.user)
-        module_page.pack()
+        module_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         
         # self.place_forget()
 
@@ -47,6 +47,6 @@ class StudentFrame(MainPageFrame):
         challenge_window.title("Challenge")
 
         challenge_page = ChallengePage(challenge_window, user =self.user)
-        challenge_page.pack()
+        challenge_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
         # self.place_forget()
