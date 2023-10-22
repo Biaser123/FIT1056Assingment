@@ -149,6 +149,10 @@ class ForumPage(tk.Frame):
                 file.write(f"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content}\n")
 
     def load_data_from_file(self):
+        for item in self.post_tree.get_children():
+            self.post_tree.delete(item)
+            Post.posts.clear()
+            Comment.comments.clear()
         with open("forum_data.txt", "r") as file:
             lines = file.readlines()
             for line in lines:
@@ -161,3 +165,4 @@ class ForumPage(tk.Frame):
                     post = Post.posts.get(int(post_id))
                     if post:
                         self.user.create_comment(post, content, username=username)
+        self.update_post_list()

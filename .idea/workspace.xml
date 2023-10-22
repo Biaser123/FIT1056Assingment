@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChallengePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChallengePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LearningModuleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/LearningModuleFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saved_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saved_answers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +48,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wei/Monash/FIT1056/pythonProject/images&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Wei/Monash/FIT1056/pythonProject/images"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
@@ -265,7 +268,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696981695196</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1697001364544</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697001364544</updated>
+    </task>
+    <task id="LOCAL-00026" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1697001375209</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1697001375209</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -281,6 +300,7 @@
     <MESSAGE value="login, logout, all main page for the 3 diff roles" />
     <MESSAGE value="fix a bug for data saving" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
 </project>

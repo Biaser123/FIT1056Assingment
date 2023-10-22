@@ -1,0 +1,487 @@
+Index: StudentFrame.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import tkinter as tk\r\nfrom tkinter import messagebox\r\n\r\nfrom ForumPage import ForumPage\r\nfrom mainPageFrame import MainPageFrame\r\nfrom LearningModuleFrame import LearningModulePage\r\nfrom ChallengePage import ChallengePage\r\n\r\nclass StudentFrame(MainPageFrame):\r\n    def __init__(self, user, master=None):\r\n        super().__init__(user, master)\r\n\r\n    def create_widgets(self):\r\n        super().create_widgets()\r\n        \r\n        module_button = tk.Button(self, text = \"Learning Module\", command= self.learning_module)\r\n        module_button.pack(fill=tk.X, padx=10, pady=5)\r\n\r\n        take_quiz_button = tk.Button(self, text=\"Take Challenge\", command= self.take_challenge)\r\n        take_quiz_button.pack(fill=tk.X, padx=10, pady=5)\r\n\r\n        forum_button = tk.Button(self, text=\"View Forum\", command=self.view_forum)\r\n        forum_button.pack(fill=tk.X, padx=10, pady=5)\r\n\r\n\r\n\r\n    def view_forum(self):\r\n        forum_window = tk.Toplevel(self.master)\r\n        forum_window.title(\"Forum\")\r\n\r\n        forum_page = ForumPage(forum_window, user=self.user)\r\n        forum_page.pack()\r\n\r\n        # self.place_forget()\r\n\r\n    def learning_module(self):\r\n        module_window = tk.Toplevel(self.master)\r\n        module_window.title(\"Learning Module\")\r\n\r\n        module_page = LearningModulePage(module_window, user=self.user)\r\n        module_page.pack()\r\n        \r\n        # self.place_forget()\r\n\r\n    def take_challenge(self):\r\n        challenge_window = tk.Toplevel(self.master)\r\n        challenge_window.title(\"Challenge\")\r\n\r\n        challenge_page = ChallengePage(challenge_window, user =self.user)\r\n        challenge_page.pack()\r\n\r\n        # self.place_forget()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/StudentFrame.py b/StudentFrame.py
+--- a/StudentFrame.py	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/StudentFrame.py	(date 1697875532691)
+@@ -6,24 +6,23 @@
+ from LearningModuleFrame import LearningModulePage
+ from ChallengePage import ChallengePage
+ 
++
+ class StudentFrame(MainPageFrame):
+     def __init__(self, user, master=None):
+         super().__init__(user, master)
+ 
+     def create_widgets(self):
+         super().create_widgets()
+-        
+-        module_button = tk.Button(self, text = "Learning Module", command= self.learning_module)
++
++        module_button = tk.Button(self, text="Learning Module", command=self.learning_module)
+         module_button.pack(fill=tk.X, padx=10, pady=5)
+ 
+-        take_quiz_button = tk.Button(self, text="Take Challenge", command= self.take_challenge)
++        take_quiz_button = tk.Button(self, text="Take Challenge", command=self.take_challenge)
+         take_quiz_button.pack(fill=tk.X, padx=10, pady=5)
+ 
+         forum_button = tk.Button(self, text="View Forum", command=self.view_forum)
+         forum_button.pack(fill=tk.X, padx=10, pady=5)
+ 
+-
+-
+     def view_forum(self):
+         forum_window = tk.Toplevel(self.master)
+         forum_window.title("Forum")
+@@ -38,15 +37,15 @@
+         module_window.title("Learning Module")
+ 
+         module_page = LearningModulePage(module_window, user=self.user)
+-        module_page.pack()
+-        
++        module_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
++
+         # self.place_forget()
+ 
+     def take_challenge(self):
+         challenge_window = tk.Toplevel(self.master)
+         challenge_window.title("Challenge")
+ 
+-        challenge_page = ChallengePage(challenge_window, user =self.user)
+-        challenge_page.pack()
++        challenge_page = ChallengePage(challenge_window, user=self.user)
++        challenge_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+ 
+         # self.place_forget()
+Index: ChallengePage.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import tkinter as tk\r\nfrom ChallengeSols import solutions\r\nfrom module_dic import *\r\nclass ChallengePage(tk.Frame):\r\n    def __init__(self,master, user):\r\n        super().__init__(master)\r\n        self.user = user\r\n        self.master = master\r\n        \r\n        # Create module buttons\r\n        challenge_label = tk.Label(self.master, text = module_1['challenge'], font = (\"Arial Bold\",15))\r\n        challenge_label.grid(row =0, columnspan = 2 ,sticky= tk.E, padx =10, pady=10)\r\n\r\n        challenge1_label = tk.Label(self.master, text = \"Challenge 1 Answer Box:\", font = (\"Arial\",12))\r\n        challenge1_label.grid(row =1, column = 0 ,sticky= tk.E, padx =10, pady=10)\r\n\r\n        self.challenge_var = tk.StringVar()\r\n        self.challenge_entry = tk.Entry(self.master,textvariable= self.challenge_var)\r\n        self.challenge_entry.grid(row=1, column= 1, sticky=tk.W, padx=10, pady=10)\r\n\r\n        submit_button = tk.Button(self.master, text= \"Submit\", command= self.check_answers)\r\n        submit_button.grid(row=2, column=1)\r\n\r\n    def check_answers(self):\r\n        answer = self.challenge_var.get()\r\n\r\n        for challenge in solutions:\r\n            if answer == solutions[challenge]:\r\n                message = tk.Label(self.master, text = \"Good work!\", font= (\"Arial\",14))\r\n                message.grid(row=3)\r\n\r\n        \r\n        with open (\"saved_answers.txt\",\"a\") as file:\r\n            file.write(f\"Challenge 1's Student answers: {answer}\\n\")\r\n\r\n            \r\n        \r\n\r\n\r\n\r\n        \r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ChallengePage.py b/ChallengePage.py
+--- a/ChallengePage.py	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/ChallengePage.py	(date 1697875532681)
+@@ -1,24 +1,26 @@
+ import tkinter as tk
+ from ChallengeSols import solutions
+ from module_dic import *
++
++
+ class ChallengePage(tk.Frame):
+-    def __init__(self,master, user):
++    def __init__(self, master, user):
+         super().__init__(master)
+         self.user = user
+         self.master = master
+-        
++
+         # Create module buttons
+-        challenge_label = tk.Label(self.master, text = module_1['challenge'], font = ("Arial Bold",15))
+-        challenge_label.grid(row =0, columnspan = 2 ,sticky= tk.E, padx =10, pady=10)
++        challenge_label = tk.Label(self.master, text=module_1['challenge'], font=("Arial Bold", 15))
++        challenge_label.grid(row=0, columnspan=2, sticky=tk.E, padx=10, pady=10)
+ 
+-        challenge1_label = tk.Label(self.master, text = "Challenge 1 Answer Box:", font = ("Arial",12))
+-        challenge1_label.grid(row =1, column = 0 ,sticky= tk.E, padx =10, pady=10)
++        challenge1_label = tk.Label(self.master, text="Challenge 1 Answer Box:", font=("Arial", 12))
++        challenge1_label.grid(row=1, column=0, sticky=tk.E, padx=10, pady=10)
+ 
+         self.challenge_var = tk.StringVar()
+-        self.challenge_entry = tk.Entry(self.master,textvariable= self.challenge_var)
+-        self.challenge_entry.grid(row=1, column= 1, sticky=tk.W, padx=10, pady=10)
++        self.challenge_entry = tk.Entry(self.master, textvariable=self.challenge_var)
++        self.challenge_entry.grid(row=1, column=1, sticky=tk.W, padx=10, pady=10)
+ 
+-        submit_button = tk.Button(self.master, text= "Submit", command= self.check_answers)
++        submit_button = tk.Button(self.master, text="Submit", command=self.check_answers)
+         submit_button.grid(row=2, column=1)
+ 
+     def check_answers(self):
+@@ -26,17 +28,8 @@
+ 
+         for challenge in solutions:
+             if answer == solutions[challenge]:
+-                message = tk.Label(self.master, text = "Good work!", font= ("Arial",14))
++                message = tk.Label(self.master, text="Good work!", font=("Arial", 14))
+                 message.grid(row=3)
+ 
+-        
+-        with open ("saved_answers.txt","a") as file:
++        with open("saved_answers.txt", "a") as file:
+             file.write(f"Challenge 1's Student answers: {answer}\n")
+-
+-            
+-        
+-
+-
+-
+-        
+-
+Index: user.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from post import Post, Comment\r\n\r\n\r\nclass User:\r\n\r\n    def __init__(self, first_name, last_name, username, password, email, role=None, is_active=True):\r\n        self.first_name = first_name\r\n        self.last_name = last_name\r\n        self.username = username\r\n        self.password = password\r\n        self.email = email\r\n        self.role = role\r\n        self.posts = []  # Initialize the user's posts list\r\n        self.comments = []  # Initialize the user's comments list\r\n        self.is_active = is_active\r\n\r\n    def get_first_name(self):\r\n        return self.first_name\r\n\r\n    def get_last_name(self):\r\n        return self.last_name\r\n\r\n    def get_username(self):\r\n        return self.username\r\n\r\n    def get_password(self):\r\n        return self.password\r\n\r\n    def get_email(self):\r\n        return self.email\r\n\r\n    def get_role(self):\r\n        return self.role\r\n\r\n    def get_is_active(self):\r\n        return self.is_active\r\n\r\n    def create_post(self, post_title, post_content):\r\n        post = Post(self, post_title, post_content)\r\n        self.posts.append(post)\r\n        return post\r\n\r\n    def create_comment(self, post, comment_content):\r\n        comment = Comment(self, post, comment_content)\r\n        post.comments.append(comment)\r\n        self.comments.append(comment)\r\n        return comment\r\n\r\n    # def get_date_of_birth(self):\r\n    #     return self.date_of_birth\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    pass\r\n\r\n    # user1 = User('Dat','Le', 'Eddie',\"12345\",'dakvjnwv', 'Sutdent')\r\n    # print(user1.get_first_name())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/user.py b/user.py
+--- a/user.py	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/user.py	(date 1697952044698)
+@@ -2,6 +2,8 @@
+ 
+ 
+ class User:
++    next_post_id = 1
++    next_comment_id = 1
+ 
+     def __init__(self, first_name, last_name, username, password, email, role=None, is_active=True):
+         self.first_name = first_name
+Index: forum_data.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/forum_data.txt b/forum_data.txt
+--- a/forum_data.txt	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/forum_data.txt	(date 1697951695494)
+@@ -1,0 +1,1 @@
++Post,5,a,q23,student
+Index: ForumPage.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import tkinter as tk\r\nfrom tkinter import ttk\r\n\r\nfrom post import Comment, Post\r\n\r\n\r\nclass ForumPage(tk.Frame):\r\n    def __init__(self, master, user):\r\n        super().__init__(master)\r\n        self.post_content_text = None\r\n        self.add_comment_button = None\r\n        self.new_comment_entry = None\r\n        self.comment_listbox = None\r\n        self.comment_label = None\r\n        self.post_content_label = None\r\n        self.post_title_label = None\r\n        self.post_tree = None\r\n        self.master = master\r\n        self.user = user\r\n        self.pack()\r\n        self.create_widgets()\r\n        self.new_post_window = None\r\n        self.load_data_from_file()\r\n\r\n    def create_widgets(self):\r\n        # list\r\n        post_list_frame = tk.Frame(self)\r\n        post_list_frame.grid(row=0, column=0, padx=10, pady=10, sticky=\"nsew\")\r\n\r\n        self.post_tree = ttk.Treeview(post_list_frame, columns=(\"PostID\", \"Title\", \"Author\"))\r\n        self.post_tree.heading(\"#1\", text=\"PostID\")\r\n        self.post_tree.column(\"#1\", width=0, stretch=tk.NO)\r\n        self.post_tree.heading(\"#1\", text=\"\", anchor=tk.W)\r\n        self.post_tree.heading(\"#2\", text=\"Title\")\r\n        self.post_tree.heading(\"#3\", text=\"Author\")\r\n        self.post_tree.pack(fill=tk.BOTH, expand=True)\r\n\r\n        self.update_post_list()\r\n\r\n        self.post_tree.bind(\"<ButtonRelease-1>\", self.show_post_details_popup)\r\n\r\n        new_post_button = tk.Button(self, text=\"New Post\", command=self.create_new_post)\r\n        new_post_button.grid(row=1, column=0, columnspan=2, padx=10, pady=10)\r\n\r\n    def show_post_details_popup(self, event):\r\n        selected_item = self.post_tree.selection()\r\n        if selected_item:\r\n            post_id = self.post_tree.item(selected_item[0], \"values\")[0]\r\n            selected_post = Post.posts.get(int(post_id))\r\n\r\n            if selected_post:\r\n                post_popup_window = tk.Toplevel(self)\r\n                post_popup_window.title(selected_post.title)\r\n\r\n                post_details_frame = tk.Frame(post_popup_window)\r\n                post_details_frame.pack()\r\n\r\n                post_content_label = tk.Label(post_details_frame, text=selected_post.content)\r\n                post_content_label.pack()\r\n\r\n                comment_label = tk.Label(post_details_frame, text=\"Comments:\")\r\n                comment_label.pack()\r\n\r\n                comment_listbox = tk.Listbox(post_details_frame, height=5, selectmode=tk.SINGLE)\r\n                comment_listbox.pack()\r\n\r\n                for comment in selected_post.comments:\r\n                    comment_listbox.insert(tk.END, f\"{comment.user.username}: {comment.content}\")\r\n\r\n                new_comment_entry = tk.Entry(post_details_frame, width=30)\r\n                new_comment_entry.pack()\r\n\r\n                add_comment_button = tk.Button(post_details_frame, text=\"Add Comment\",\r\n                                               command=lambda: self.add_comment(selected_post, new_comment_entry,\r\n                                                                                comment_listbox))\r\n                add_comment_button.pack()\r\n\r\n    def update_post_list(self):\r\n        for item in self.post_tree.get_children():\r\n            self.post_tree.delete(item)\r\n\r\n        posts = Post.get_all_posts()\r\n        for post in posts:\r\n            self.post_tree.insert(\"\", \"end\", values=(post.post_id, post.title, post.user.username))\r\n\r\n    def show_post_details(self, event):\r\n        selected_item = self.post_tree.selection()\r\n        if selected_item:\r\n            post_id = selected_item[0]\r\n            selected_post = Post.posts.get(post_id)\r\n\r\n            if selected_post:\r\n                self.post_title_label.config(text=selected_post.title)\r\n                self.post_content_text.delete(1.0, tk.END)\r\n                self.post_content_text.insert(tk.END, selected_post.content)\r\n                self.comment_listbox.delete(0, tk.END)\r\n                comments = Comment.get_comments_for_post(selected_post)\r\n                for comment in comments:\r\n                    self.comment_listbox.insert(tk.END, f\"{comment.user.username}: {comment.content}\")\r\n        else:\r\n            # Clear content when no post is selected\r\n            self.post_title_label.config(text=\"\")\r\n            self.post_content_label.config(text=\"\")\r\n            self.comment_listbox.delete(0, tk.END)\r\n\r\n    def add_comment(self, selected_post, new_comment_entry, comment_listbox):\r\n        new_comment_content = new_comment_entry.get()\r\n        new_comment = self.user.create_comment(selected_post, new_comment_content)\r\n        comment_listbox.insert(tk.END, f\"{new_comment.user.username}: {new_comment.content}\")\r\n        new_comment_entry.delete(0, tk.END)\r\n\r\n    def create_new_post(self):\r\n        new_post_window = tk.Toplevel(self)\r\n        new_post_window.title(\"New Post\")\r\n        self.new_post_window = new_post_window\r\n\r\n        new_post_frame = tk.Frame(new_post_window)\r\n        new_post_frame.pack()\r\n\r\n        title_label = tk.Label(new_post_frame, text=\"Title:\")\r\n        title_label.grid(row=0, column=0, padx=10, pady=10, sticky=\"e\")\r\n        title_entry = tk.Entry(new_post_frame)\r\n        title_entry.grid(row=0, column=1, padx=10, pady=10, sticky=\"w\")\r\n\r\n        content_label = tk.Label(new_post_frame, text=\"Content:\")\r\n        content_label.grid(row=1, column=0, padx=10, pady=10, sticky=\"ne\")\r\n        content_text = tk.Text(new_post_frame, width=30, height=10)\r\n        content_text.grid(row=1, column=1, padx=10, pady=10, sticky=\"nw\")\r\n\r\n        create_button = tk.Button(new_post_frame, text=\"Create Post\",\r\n                                  command=lambda: self.submit_new_post(title_entry.get(),\r\n                                                                       content_text.get(\"1.0\", tk.END)))\r\n        create_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)\r\n\r\n    def submit_new_post(self, title, content):\r\n\r\n        new_post = self.user.create_post(title, content)\r\n        self.update_post_list()\r\n        self.save_data_to_file()\r\n\r\n        self.new_post_window.destroy()\r\n\r\n    def save_data_to_file(self):\r\n        with open(\"forum_data.txt\", \"w\") as file:\r\n            for post_id, post in Post.posts.items():\r\n                file.write(f\"Post,{post_id},{post.title},{post.content.strip()},{post.user.username}\\n\")\r\n\r\n            for comment_id, comment in Comment.comments.items():\r\n                file.write(f\"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content}\\n\")\r\n\r\n    def load_data_from_file(self):\r\n        with open(\"forum_data.txt\", \"r\") as file:\r\n            lines = file.readlines()\r\n            for line in lines:\r\n                parts = line.strip().split(\",\")\r\n                if parts[0] == \"Post\":\r\n                    post_id, title, content, username = parts[1:]\r\n                    self.user.create_post(title, content, username=username)\r\n                elif parts[0] == \"Comment\":\r\n                    comment_id, username, post_id, content = parts[1:]\r\n                    post = Post.posts.get(int(post_id))\r\n                    if post:\r\n                        self.user.create_comment(post, content, username=username)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ForumPage.py b/ForumPage.py
+--- a/ForumPage.py	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/ForumPage.py	(date 1697952273895)
+@@ -109,6 +109,9 @@
+         comment_listbox.insert(tk.END, f"{new_comment.user.username}: {new_comment.content}")
+         new_comment_entry.delete(0, tk.END)
+ 
++        # Save the new comment to the data file
++        self.save_data_to_file()
++
+     def create_new_post(self):
+         new_post_window = tk.Toplevel(self)
+         new_post_window.title("New Post")
+@@ -133,7 +136,6 @@
+         create_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+ 
+     def submit_new_post(self, title, content):
+-
+         new_post = self.user.create_post(title, content)
+         self.update_post_list()
+         self.save_data_to_file()
+@@ -149,15 +151,23 @@
+                 file.write(f"Comment,{comment_id},{comment.user.username},{comment.post.post_id},{comment.content}\n")
+ 
+     def load_data_from_file(self):
+-        with open("forum_data.txt", "r") as file:
+-            lines = file.readlines()
+-            for line in lines:
+-                parts = line.strip().split(",")
+-                if parts[0] == "Post":
+-                    post_id, title, content, username = parts[1:]
+-                    self.user.create_post(title, content, username=username)
+-                elif parts[0] == "Comment":
+-                    comment_id, username, post_id, content = parts[1:]
+-                    post = Post.posts.get(int(post_id))
+-                    if post:
+-                        self.user.create_comment(post, content, username=username)
++        try:
++            with open("forum_data.txt", "r") as file:
++                for line in file:
++                    data = line.strip().split(',')
++                    if data[0] == "Post":
++                        post_id, title, content, username = int(data[1]), data[2], data[3], data[4]
++                        user = self.user  # Replace this with your user retrieval logic
++                        new_post = user.create_post(title, content)
++                        new_post.post_id = post_id  # Manually set the post_id
++                    elif data[0] == "Comment":
++                        comment_id, username, post_id, content = int(data[1]), data[2], int(data[3]), data[4]
++                        user = self.user  # Replace this with your user retrieval logic
++                        post = Post.posts.get(post_id)
++                        if post:
++                            new_comment = user.create_comment(post, content)
++                            new_comment.comment_id = comment_id  # Manually set the comment_id
++
++            self.update_post_list()
++        except FileNotFoundError:
++            print("Data file not found, starting with an empty state.")
+Index: LearningModuleFrame.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># third party import\r\nimport tkinter as tk\r\nfrom tkinter import messagebox\r\n\r\nfrom module_dic import *\r\nfrom QuizPage import QuizPage\r\n\r\nclass LearningModulePage(tk.Frame):\r\n    def __init__(self,master, user):\r\n        super().__init__(master)\r\n        self.user = user\r\n        self.master = master\r\n        \r\n        # Create module buttons\r\n        module1_button = tk.Button(self.master, text = \"Module 1\", command= self.module_1)\r\n        module1_button.grid(row =0, column = 0 , padx =10, pady=10)\r\n\r\n        module2_button = tk.Button(self.master, text = \"Module 2\", command= self.module_2)\r\n        module2_button.grid(row =1, column = 0 , padx =10, pady=10)\r\n\r\n        module3_button = tk.Button(self.master, text = \"Module 3\",command= self.module_3)\r\n        module3_button.grid(row =2, column = 0 , padx =10, pady=10)\r\n\r\n        # module4_button = tk.Button(self.master, text = \"Module 4\")\r\n        # module4_button.grid(row =3, column = 0 , padx =10, pady=10)\r\n    \r\n    def module_1(self): \r\n        # This function allow access to module 1\r\n        # self.place_forget()\r\n        module1_frame = tk.Toplevel(self.master)\r\n        module1_frame.title(\"Module 1\")\r\n        self.master.withdraw()\r\n        module1_heading = tk.Label(module1_frame, text= module_1['heading'], font = (\"Arial Bold\",25))\r\n        module1_heading.grid(row=0)\r\n        module1_heading.rowconfigure(1, weight=1)\r\n        module1_heading.columnconfigure(1,weight=1)\r\n\r\n        module1_content = tk.Label(module1_frame,text = module_1['content'], font = (\"Arial\",12))\r\n        module1_content.grid(row = 1)\r\n        \r\n        module_quiz = tk.Button(module1_frame, text= \"Take Quiz\", command= self.quiz)\r\n        module_quiz.grid (row =2)\r\n\r\n    def module_2(self):\r\n        # This function allow access to module 2\r\n        self.place_forget()\r\n        module2_frame = tk.Toplevel(self.master)\r\n        module2_frame.title(\"Module 2\")\r\n\r\n        module2_heading = tk.Label(module2_frame, text= module_2['heading'], font = (\"Arial Bold\",25))\r\n        module2_heading.grid(row=0)\r\n        \r\n\r\n        module2_content = tk.Label(module2_frame,text = module_2['content'], font = (\"Arial\",12))\r\n        module2_content.grid(row = 1)\r\n\r\n        module_quiz = tk.Button(module2_frame, text= \"Take Quiz\", command= self.quiz)\r\n        module_quiz.grid (row =2)\r\n\r\n    def module_3(self):\r\n        # This function allow access to module 3\r\n        self.place_forget()\r\n        module3_frame = tk.Toplevel(self.master)\r\n        module3_frame.title(\"Module 3\")\r\n\r\n        module3_heading = tk.Label(module3_frame, text= module_3['heading'], font = (\"Arial Bold\",25))\r\n        module3_heading.grid(row=0)\r\n        \r\n\r\n        module3_content = tk.Label(module3_frame,text = module_3['content'], font = (\"Arial\",12))\r\n        module3_content.grid(row = 1)\r\n\r\n        module_quiz = tk.Button(module3_frame, text= \"Take Quiz\", command= self.quiz)\r\n        module_quiz.grid (row =2)\r\n\r\n    # def module_4(self):\r\n    #     self.place_forget()\r\n    #     module4_frame = tk.Toplevel(self.master)\r\n    #     module4_frame.title(\"Module 4\")\r\n\r\n    #     module4_heading = tk.Label(module4_frame, text= module_4['heading'], font = (\"Arial Bold\",25))\r\n    #     module4_heading.grid(row=0)\r\n        \r\n\r\n    #     module4_content = tk.Label(module4_frame,text = module_4['content'], font = (\"Arial\",12))\r\n    #     module4_content.grid(row = 1)\r\n\r\n    #     module4_quiz = tk.Button(module4_frame, text= \"Quiz 4\")\r\n    #     module4_quiz.grid (row =2)\r\n      \r\n    def quiz(self):\r\n\r\n        quiz_window = tk.Toplevel(self.master)\r\n        quiz_window.title(\"Quiz\")\r\n\r\n        quiz_page = QuizPage(quiz_window, user=self.user)\r\n        quiz_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)\r\n\r\n        self.master.withdraw()\r\n\r\n\r\n\r\n\r\n\r\n\r\n        \r\n\r\n        \r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LearningModuleFrame.py b/LearningModuleFrame.py
+--- a/LearningModuleFrame.py	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/LearningModuleFrame.py	(date 1697875532686)
+@@ -5,41 +5,42 @@
+ from module_dic import *
+ from QuizPage import QuizPage
+ 
++
+ class LearningModulePage(tk.Frame):
+-    def __init__(self,master, user):
++    def __init__(self, master, user):
+         super().__init__(master)
+         self.user = user
+         self.master = master
+-        
++
+         # Create module buttons
+-        module1_button = tk.Button(self.master, text = "Module 1", command= self.module_1)
+-        module1_button.grid(row =0, column = 0 , padx =10, pady=10)
++        module1_button = tk.Button(self.master, text="Module 1", command=self.module_1)
++        module1_button.grid(row=0, column=0, padx=10, pady=10)
+ 
+-        module2_button = tk.Button(self.master, text = "Module 2", command= self.module_2)
+-        module2_button.grid(row =1, column = 0 , padx =10, pady=10)
++        module2_button = tk.Button(self.master, text="Module 2", command=self.module_2)
++        module2_button.grid(row=1, column=0, padx=10, pady=10)
+ 
+-        module3_button = tk.Button(self.master, text = "Module 3",command= self.module_3)
+-        module3_button.grid(row =2, column = 0 , padx =10, pady=10)
++        module3_button = tk.Button(self.master, text="Module 3", command=self.module_3)
++        module3_button.grid(row=2, column=0, padx=10, pady=10)
+ 
+         # module4_button = tk.Button(self.master, text = "Module 4")
+         # module4_button.grid(row =3, column = 0 , padx =10, pady=10)
+-    
+-    def module_1(self): 
++
++    def module_1(self):
+         # This function allow access to module 1
+         # self.place_forget()
+         module1_frame = tk.Toplevel(self.master)
+         module1_frame.title("Module 1")
+         self.master.withdraw()
+-        module1_heading = tk.Label(module1_frame, text= module_1['heading'], font = ("Arial Bold",25))
++        module1_heading = tk.Label(module1_frame, text=module_1['heading'], font=("Arial Bold", 25))
+         module1_heading.grid(row=0)
+         module1_heading.rowconfigure(1, weight=1)
+-        module1_heading.columnconfigure(1,weight=1)
++        module1_heading.columnconfigure(1, weight=1)
+ 
+-        module1_content = tk.Label(module1_frame,text = module_1['content'], font = ("Arial",12))
+-        module1_content.grid(row = 1)
+-        
+-        module_quiz = tk.Button(module1_frame, text= "Take Quiz", command= self.quiz)
+-        module_quiz.grid (row =2)
++        module1_content = tk.Label(module1_frame, text=module_1['content'], font=("Arial", 12))
++        module1_content.grid(row=1)
++
++        module_quiz = tk.Button(module1_frame, text="Take Quiz", command=self.quiz)
++        module_quiz.grid(row=2)
+ 
+     def module_2(self):
+         # This function allow access to module 2
+@@ -47,15 +48,14 @@
+         module2_frame = tk.Toplevel(self.master)
+         module2_frame.title("Module 2")
+ 
+-        module2_heading = tk.Label(module2_frame, text= module_2['heading'], font = ("Arial Bold",25))
++        module2_heading = tk.Label(module2_frame, text=module_2['heading'], font=("Arial Bold", 25))
+         module2_heading.grid(row=0)
+-        
+ 
+-        module2_content = tk.Label(module2_frame,text = module_2['content'], font = ("Arial",12))
+-        module2_content.grid(row = 1)
++        module2_content = tk.Label(module2_frame, text=module_2['content'], font=("Arial", 12))
++        module2_content.grid(row=1)
+ 
+-        module_quiz = tk.Button(module2_frame, text= "Take Quiz", command= self.quiz)
+-        module_quiz.grid (row =2)
++        module_quiz = tk.Button(module2_frame, text="Take Quiz", command=self.quiz)
++        module_quiz.grid(row=2)
+ 
+     def module_3(self):
+         # This function allow access to module 3
+@@ -63,15 +63,14 @@
+         module3_frame = tk.Toplevel(self.master)
+         module3_frame.title("Module 3")
+ 
+-        module3_heading = tk.Label(module3_frame, text= module_3['heading'], font = ("Arial Bold",25))
++        module3_heading = tk.Label(module3_frame, text=module_3['heading'], font=("Arial Bold", 25))
+         module3_heading.grid(row=0)
+-        
+ 
+-        module3_content = tk.Label(module3_frame,text = module_3['content'], font = ("Arial",12))
+-        module3_content.grid(row = 1)
++        module3_content = tk.Label(module3_frame, text=module_3['content'], font=("Arial", 12))
++        module3_content.grid(row=1)
+ 
+-        module_quiz = tk.Button(module3_frame, text= "Take Quiz", command= self.quiz)
+-        module_quiz.grid (row =2)
++        module_quiz = tk.Button(module3_frame, text="Take Quiz", command=self.quiz)
++        module_quiz.grid(row=2)
+ 
+     # def module_4(self):
+     #     self.place_forget()
+@@ -80,16 +79,14 @@
+ 
+     #     module4_heading = tk.Label(module4_frame, text= module_4['heading'], font = ("Arial Bold",25))
+     #     module4_heading.grid(row=0)
+-        
+ 
+     #     module4_content = tk.Label(module4_frame,text = module_4['content'], font = ("Arial",12))
+     #     module4_content.grid(row = 1)
+ 
+     #     module4_quiz = tk.Button(module4_frame, text= "Quiz 4")
+     #     module4_quiz.grid (row =2)
+-      
++
+     def quiz(self):
+-
+         quiz_window = tk.Toplevel(self.master)
+         quiz_window.title("Quiz")
+ 
+@@ -97,15 +94,3 @@
+         quiz_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+ 
+         self.master.withdraw()
+-
+-
+-
+-
+-
+-
+-        
+-
+-        
+-
+-
+-
+Index: saved_answers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Challenge 1's Student answers: print(\"Hi,my name is Python, nice to meet you\")\r\nChallenge 1's Student answers: print(\"Hi,my name is Python, nice to meet you\")\r\nChallenge 1's Student answers: print(\"Hi, my name is Python, nice to meet you\")\r\nChallenge 1's Student answers: print(\"Hi, my name is Python, nice to meet you\")\r\nChallenge 1's Student answers: asfdas\r\nChallenge 1's Student answers: asfdas\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: asfd\r\nChallenge 1's Student answers: print(\"Hi, my nmae is Python, nice to meet you\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/saved_answers.txt b/saved_answers.txt
+--- a/saved_answers.txt	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/saved_answers.txt	(date 1697875031401)
+@@ -1,26 +1,1 @@
+-Challenge 1's Student answers: print("Hi,my name is Python, nice to meet you")
+-Challenge 1's Student answers: print("Hi,my name is Python, nice to meet you")
+-Challenge 1's Student answers: print("Hi, my name is Python, nice to meet you")
+-Challenge 1's Student answers: print("Hi, my name is Python, nice to meet you")
+-Challenge 1's Student answers: asfdas
+-Challenge 1's Student answers: asfdas
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+-Challenge 1's Student answers: asfd
+ Challenge 1's Student answers: print("Hi, my nmae is Python, nice to meet you")
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9e70553c-3ac4-4352-81a7-43f994be5d7f\" name=\"Changes\" comment=\"Merge remote-tracking branch 'origin/master'\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ChallengePage.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ChallengePage.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/StudentFrame.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/StudentFrame.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/forum_data.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/forum_data.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/post.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/post.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/saved_answers.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/saved_answers.txt\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"ineddieble51 &lt;144681994+ineddieble51@users.noreply.github.com&gt;\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master_WeILu\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2VZFYX4MjFrrlCJKMswNRDqo7GJ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wei/Monash/FIT1056/pythonProject/images&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Wei\\Monash\\FIT1056\\pythonProject\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Wei\\Monash\\FIT1056\\pythonProject\" />\r\n      <recent name=\"C:\\Users\\Wei\\Monash\\FIT1056\\pythonProject\\images\" />\r\n      <recent name=\"C:\\Users\\Wei\\Monash\\FIT1056\\pythonProject\\data\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9e70553c-3ac4-4352-81a7-43f994be5d7f\" name=\"Changes\" comment=\"\" />\r\n      <created>1695035743403</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1695035743403</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"create\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695036147875</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695036147875</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695036180528</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695036180528</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"create\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695037067874</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695037067874</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"base function for 4 req (WEi Lu)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695074157612</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695074157612</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"base function for 4 req (WEi Lu)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695074169382</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695074169383</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"base function for 4 req (WEi Lu)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695077202349</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695077202349</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"content filter function update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695159725961</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695159725962</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"content filter function update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695159742683</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695159742683</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"post edit function update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695160574639</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695160574639</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"post edit function update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1695160583479</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1695160583479</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"interface\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696420473518</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696420473518</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"main page\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696495445022</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696495445022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696826380854</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696826380854</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696826389667</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696826389667</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696826487810</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696826487810</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"login, logout, all main page for the 3 diff roles\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696913835611</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696913835611</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"login, logout, all main page for the 3 diff roles\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696913841929</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696913841929</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"login, logout, all main page for the 3 diff roles\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696920308873</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696920308873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"login, logout, all main page for the 3 diff roles\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696920319744</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696920319744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Merge remote-tracking branch 'origin/master'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696937170147</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696937170147</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"Merge remote-tracking branch 'origin/master'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696937178509</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696937178509</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"Merge remote-tracking branch 'origin/master'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696981682637</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696981682637</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"Merge remote-tracking branch 'origin/master'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696981689613</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696981689613</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"Merge remote-tracking branch 'origin/master'\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696981695196</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696981695196</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"25\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"create\" />\r\n    <MESSAGE value=\"base function for 4 req (WEi Lu)\" />\r\n    <MESSAGE value=\"content filter function update\" />\r\n    <MESSAGE value=\"post edit function update\" />\r\n    <MESSAGE value=\"interface\" />\r\n    <MESSAGE value=\"main page\" />\r\n    <MESSAGE value=\"Add files via upload&#10;&#10;The newly added files are to used for the main page, log in, and registration\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;authenticator.py&#10;#&#9;loginframe.py&#10;#&#9;mainpage.py\" />\r\n    <MESSAGE value=\"forum system imp.  But there's a bug when saving the data(cant figure out)\" />\r\n    <MESSAGE value=\"login, logout, all main page for the 3 diff roles\" />\r\n    <MESSAGE value=\"fix a bug for data saving\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/master'\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merge remote-tracking branch 'origin/master'\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 96fa3b53d9fa6115b69a54476281f0a221bef1ef)
++++ b/.idea/workspace.xml	(date 1697877051748)
+@@ -4,13 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
++    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="bug fix">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/ChallengePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChallengePage.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/LearningModuleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/LearningModuleFrame.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/saved_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saved_answers.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -46,14 +48,15 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wei/Monash/FIT1056/pythonProject/images&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "ToolWindowRun.ShowToolbar": "false",
++    "git-widget-placeholder": "master",
++    "ignore.virus.scanning.warn.message": "true",
++    "last_opened_file_path": "C:/Users/Wei/Monash/FIT1056/pythonProject/images"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
+@@ -265,7 +268,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1696981695196</updated>
+     </task>
+-    <option name="localTasksCounter" value="25" />
++    <task id="LOCAL-00025" summary="bug fix">
++      <option name="closed" value="true" />
++      <created>1697001364544</created>
++      <option name="number" value="00025" />
++      <option name="presentableId" value="LOCAL-00025" />
++      <option name="project" value="LOCAL" />
++      <updated>1697001364544</updated>
++    </task>
++    <task id="LOCAL-00026" summary="bug fix">
++      <option name="closed" value="true" />
++      <created>1697001375209</created>
++      <option name="number" value="00026" />
++      <option name="presentableId" value="LOCAL-00026" />
++      <option name="project" value="LOCAL" />
++      <updated>1697001375209</updated>
++    </task>
++    <option name="localTasksCounter" value="27" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -281,6 +300,7 @@
+     <MESSAGE value="login, logout, all main page for the 3 diff roles" />
+     <MESSAGE value="fix a bug for data saving" />
+     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
++    <MESSAGE value="bug fix" />
++    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+   </component>
+ </project>
+\ No newline at end of file
