@@ -69,8 +69,9 @@ class LoginFrame(tk.Frame):
         # Variable and label to inform user of login outcome
         self.login_text = tk.StringVar()
         # TODO: est. 2 lines
-        label = tk.Label(master=self, textvariable=self.login_text, relief=tk.FLAT)
-        label.grid(row=6, columnspan=10, padx=10, pady=10)
+        login_message = tk.Message(master=self, textvariable=self.login_text,
+                                   width=100)
+        login_message.grid(row=7, columnspan=2, padx=10, pady=10)
 
         interface = self.master
         self.registration_window = tk.Toplevel(interface)
@@ -166,7 +167,14 @@ class LoginFrame(tk.Frame):
 
         messagebox.showinfo(message="Registration Successfully Saved.")
         self.registration_window.withdraw()
+        self.first_name_var.set('')
+        self.last_name_var.set('')
+        self.username_var.set('')
+        self.password_var.set('')
+        self.email_var.set('')
+        self.email_var.set('')
         self.master.deiconify()
+
 
     def authenticate_login(self):
         """
