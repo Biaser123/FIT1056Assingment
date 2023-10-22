@@ -5,7 +5,7 @@ user1 = User("Hasbulla", "Magomedov", "lil_manz","RU551@", "no1@gmail.com", is_a
 
 user_1_login = CodeVenture()
 
-assert user_1_login.create_user("Hasbulla", "Magomedov", "lil_manz","RU551@", "no1@gmail.com", "Student") == (1, "Hasbulla", "Magomedov", "lil_manz","RU551@", "no1@gmail.com", "Student") 
+assert user_1_login.create_user("Hasbulla", "Magomedov", "lil_manz","RU551@", "no1@gmail.com", "Student") == CodeVenture(1, "Hasbulla", "Magomedov", "lil_manz","RU551@", "no1@gmail.com", "Student") 
 
 user_1_login.is_logged_in = False
 
