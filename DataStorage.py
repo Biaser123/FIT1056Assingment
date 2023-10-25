@@ -1,7 +1,6 @@
 import datetime
 import json
 
-from Quiz_interface import Quiz
 
 
 class Student:
@@ -91,12 +90,12 @@ class ProgressTracker:
     
     def print_results(self):
         # check which quizzes user has completed, and add to the count
-        for quiz in quizzes:
+        for quiz in self.quizzes:
             if quiz.status == "complete":
                 quiz_count += 1
 
         # computes the percentage of total quizzes and modules the user has completed
-        completion_status = ((quiz_count) / (len(quizzes))) * 100
+        completion_status = ((quiz_count) / (len(self.quizzes))) * 100
         
         # if user has finished everything, displays congratulatory message instead of stats
         if completion_status == 100:

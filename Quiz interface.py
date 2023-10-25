@@ -19,7 +19,7 @@ class Quiz:
         self.topic = topic
         self.status = "incomplete"
 
-        quizzes.append(self)
+        self.quizzes.append(self)
 
 
     def add_question(self, question):
