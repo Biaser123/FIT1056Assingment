@@ -28,7 +28,7 @@ class ChallengePage(tk.Frame):
             if answer == solutions[challenge]:
                 message = tk.Label(self.master, text = "Good work! You scored 10/10", font= ("Arial",14))
                 message.grid(row=3)      
-                with open ("saved_answers.txt","a") as file:
+                with open ("data/saved_answers.txt", "a") as file:
                     file.write(f"Challenge 1's Student answers: {answer}\n")            
             elif answer != solutions[challenge]:
                 message = tk.Label(self.master, text = "Good effort! The answer is not correct! Please try again", font= ("Arial",14))

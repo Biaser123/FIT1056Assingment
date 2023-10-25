@@ -8,7 +8,7 @@ from user import User
 
 class Authenticator:
 
-    def __init__(self, file_path="./registered_users.txt"):
+    def __init__(self, file_path="./data/registered_users.txt"):
         self.file_path = file_path
         self.users = []
         self.load_users()

@@ -16,8 +16,11 @@ class Post:
     def get_all_posts():
         return list(Post.posts.values())
 
+    def get_post_id(self):
+        return self.post_id
+
     def get_comments(self):
-        return self.comments
+        return Comment.get_comments_for_post(self)
 
     @staticmethod
     def delete_post(post_id):
@@ -39,5 +42,6 @@ class Comment:
 
     @staticmethod
     def get_comments_for_post(post):
-        comments = [comment_get for comment_get in Comment.comments.values() if comment_get.post == post]
-        return comments
+        comments_for_post = [comment for comment in Comment.comments.values() if comment.post == post]
+        return comments_for_post
+

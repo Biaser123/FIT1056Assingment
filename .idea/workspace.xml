@@ -4,14 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="bug fix">
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="forum bug fixin">
+      <change afterPath="$PROJECT_DIR$/data/forum_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/Admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/DataStorage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/Feedback.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/backup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/contentFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/teacher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1056Assignment/user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ChallengePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChallengePage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LearningModuleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/LearningModuleFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forum_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saved_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saved_answers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticator.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userfile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum_data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/loginframe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python-5-128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registered_users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/registered_users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/saved_answers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacherFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacherFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,23 +65,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowRun.ShowToolbar": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Wei/Monash/FIT1056/pythonProject/images"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wei/Monash/FIT1056/pythonProject/images&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\data" />
+      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -284,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697001375209</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="forum bug fixin">
+      <option name="closed" value="true" />
+      <created>1697953055452</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1697953055452</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -301,6 +326,7 @@
     <MESSAGE value="fix a bug for data saving" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="forum bug fixin" />
+    <option name="LAST_COMMIT_MESSAGE" value="forum bug fixin" />
   </component>
 </project>

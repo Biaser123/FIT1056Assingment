@@ -37,12 +37,12 @@ class User:
     def get_is_active(self):
         return self.is_active
 
-    def create_post(self, post_title, post_content, username=None):
+    def create_post(self, post_title, post_content, username=None, post_id=None):
         post = Post(self, post_title, post_content)
         self.posts.append(post)
         return post
 
-    def create_comment(self, post, comment_content):
+    def create_comment(self, post, comment_content, username=None, comment_id = None):
         comment = Comment(self, post, comment_content)
         post.comments.append(comment)
         self.comments.append(comment)

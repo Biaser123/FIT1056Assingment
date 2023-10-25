@@ -161,7 +161,7 @@ class LoginFrame(tk.Frame):
             messagebox.showerror("Error", "Please fill in all fields.")
             return
 
-        with open("registered_users.txt", "a") as file:
+        with open("data/registered_users.txt", "a") as file:
             file.write(
                 f"{username},{password},{first_name},{last_name},{email},{role},{'1'}\n")
 

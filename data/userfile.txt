@@ -1,9 +1,0 @@
-admin,admin,AD,1
-admin2,admin2,AD,1
-teacher,teacher,TC,1
-teacher2,teacher2,TC,1
-300001,w01fgang,ST,1
-300002,fr3d3r1c,ST,1
-300003,j0hann,ST,1
-300004,beeth0v3n,ST,1
-300005,130nard0,ST,1
