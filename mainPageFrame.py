@@ -1,6 +1,6 @@
 import tkinter as tk
-
-
+from ViewProfileFrame import ViewProfileFrame
+from authenticator import Authenticator
 class MainPageFrame(tk.Frame):
     def __init__(self, user, master=None):
         super().__init__(master)
@@ -11,7 +11,7 @@ class MainPageFrame(tk.Frame):
         self.add_logout_button()
 
     def create_widgets(self):
-        profile_button = tk.Button(self, text="Profile")
+        profile_button = tk.Button(self, text="Profile", command= self.view_profile)
         profile_button.pack(fill=tk.X, padx=10, pady=5)
 
     def add_logout_button(self):
@@ -23,3 +23,8 @@ class MainPageFrame(tk.Frame):
         from loginframe import LoginFrame
         student_frame = LoginFrame(self.master)
         student_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+    def view_profile(self):
+        self.place_forget()
+        view_profile_page = ViewProfileFrame(self.master, self.user,self,)
+        view_profile_page.place(relx=.5, rely =.5, anchor= tk.CENTER)
