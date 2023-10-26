@@ -1,96 +1,64 @@
 # third party import
 import tkinter as tk
 from tkinter import messagebox
-
-from module_dic import *
+from mainPageFrame import MainPageFrame
+from module_dic import module
 from QuizPage import QuizPage
+from moduleFrame import moduleFrame
 
 
 class LearningModulePage(tk.Frame):
-    def __init__(self, master, user):
+    def __init__(self,master, user,student_page):
         super().__init__(master)
         self.user = user
         self.master = master
+        self.student_page =student_page
 
+        self.canvas = tk.Canvas(self,width= 100,height= 540)
+        self.canvas.grid(row=0, column=0, sticky ="nsew")
+        scroll_bar = tk.Scrollbar(self, orient='vertical',command= self.canvas.yview)
+        scroll_bar.grid(row= 0,column=1, sticky= 'ns')
+        self.canvas.config(yscrollcommand=scroll_bar.set)
+        self.scrollable_frame = tk.Frame(self.canvas)
+        self.canvas.create_window((0,0), window= self.scrollable_frame, anchor= 'nw')
+        self.scrollable_frame.bind("<Configure>", self.on_frame_configure)
+        self.canvas.bind("<Configure>", self.on_canvas_configure)
+
+
+        for module in range (1,6):
         # Create module buttons
-        module1_button = tk.Button(self.master, text="Module 1", command=self.module_1)
-        module1_button.grid(row=0, column=0, padx=10, pady=10)
+            self.module_button = tk.Button(self.scrollable_frame, text = f"Module {module}", command= lambda m=f"Module {module}":self.module(m))
+            self.module_button.grid(row=module)
+        return_button = tk.Button(self.scrollable_frame, text= "Return", command= self.return_func)
+        return_button.grid(row =module+1)
 
-        module2_button = tk.Button(self.master, text="Module 2", command=self.module_2)
-        module2_button.grid(row=1, column=0, padx=10, pady=10)
+        self.grid_columnconfigure(0,weight=1)
+        self.grid_rowconfigure(0,weight=1)
 
-        module3_button = tk.Button(self.master, text="Module 3", command=self.module_3)
-        module3_button.grid(row=2, column=0, padx=10, pady=10)
+    def on_frame_configure(self, event):
+        self.scrollable_frame.update_idletasks()
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
 
-        # module4_button = tk.Button(self.master, text = "Module 4")
-        # module4_button.grid(row =3, column = 0 , padx =10, pady=10)
+    def on_canvas_configure(self, event):
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
 
-    def module_1(self):
-        # This function allow access to module 1
-        # self.place_forget()
-        module1_frame = tk.Toplevel(self.master)
-        module1_frame.title("Module 1")
-        self.master.withdraw()
-        module1_heading = tk.Label(module1_frame, text=module_1['heading'], font=("Arial Bold", 25))
-        module1_heading.grid(row=0)
-        module1_heading.rowconfigure(1, weight=1)
-        module1_heading.columnconfigure(1, weight=1)
-
-        module1_content = tk.Label(module1_frame, text=module_1['content'], font=("Arial", 12))
-        module1_content.grid(row=1)
-
-        module_quiz = tk.Button(module1_frame, text="Take Quiz", command=self.quiz)
-        module_quiz.grid(row=2)
-
-    def module_2(self):
-        # This function allow access to module 2
-        self.place_forget()
-        module2_frame = tk.Toplevel(self.master)
-        module2_frame.title("Module 2")
-
-        module2_heading = tk.Label(module2_frame, text=module_2['heading'], font=("Arial Bold", 25))
-        module2_heading.grid(row=0)
-
-        module2_content = tk.Label(module2_frame, text=module_2['content'], font=("Arial", 12))
-        module2_content.grid(row=1)
-
-        module_quiz = tk.Button(module2_frame, text="Take Quiz", command=self.quiz)
-        module_quiz.grid(row=2)
-
-    def module_3(self):
+    def module(self,module_selected):
         # This function allow access to module 3
+        print(module_selected)
         self.place_forget()
-        module3_frame = tk.Toplevel(self.master)
-        module3_frame.title("Module 3")
+        module_page= moduleFrame(self.master, self, module_selected, self.user)
+        module_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-        module3_heading = tk.Label(module3_frame, text=module_3['heading'], font=("Arial Bold", 25))
-        module3_heading.grid(row=0)
+    def return_func(self):
+        self.place_forget()
+        self.student_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-        module3_content = tk.Label(module3_frame, text=module_3['content'], font=("Arial", 12))
-        module3_content.grid(row=1)
 
-        module_quiz = tk.Button(module3_frame, text="Take Quiz", command=self.quiz)
-        module_quiz.grid(row=2)
 
-    # def module_4(self):
-    #     self.place_forget()
-    #     module4_frame = tk.Toplevel(self.master)
-    #     module4_frame.title("Module 4")
 
-    #     module4_heading = tk.Label(module4_frame, text= module_4['heading'], font = ("Arial Bold",25))
-    #     module4_heading.grid(row=0)
+        
 
-    #     module4_content = tk.Label(module4_frame,text = module_4['content'], font = ("Arial",12))
-    #     module4_content.grid(row = 1)
+        
 
-    #     module4_quiz = tk.Button(module4_frame, text= "Quiz 4")
-    #     module4_quiz.grid (row =2)
 
-    def quiz(self):
-        quiz_window = tk.Toplevel(self.master)
-        quiz_window.title("Quiz")
 
-        quiz_page = QuizPage(quiz_window, user=self.user)
-        quiz_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-
-        self.master.withdraw()
