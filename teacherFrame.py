@@ -8,7 +8,6 @@ class TeacherFrame(MainPageFrame):
     def __init__(self, user, master=None):
         super().__init__(user, master)
 
-
     def create_widgets(self):
         super().create_widgets()
         manage_module_button = tk.Button(self, text="Manage Module")
