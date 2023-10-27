@@ -7,6 +7,7 @@ from tkinter import messagebox
 class ViewProfileFrame(tk.Frame):
     def __init__(self, master, user, student_page):
         super().__init__(master)
+        self.show_password = None
         self.master = master
         self.user = user
         self.student_page = student_page

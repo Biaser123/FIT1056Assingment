@@ -2,6 +2,7 @@ import tkinter as tk
 
 from ForumPage import ForumPage
 from mainPageFrame import MainPageFrame
+from moduleManagementPage import ModuleManagementPage
 
 
 class TeacherFrame(MainPageFrame):
@@ -10,7 +11,7 @@ class TeacherFrame(MainPageFrame):
 
     def create_widgets(self):
         super().create_widgets()
-        manage_module_button = tk.Button(self, text="Manage Module")
+        manage_module_button = tk.Button(self, text="Manage Module", command=self.manage_module)
         manage_module_button.pack(fill=tk.X, padx=10, pady=5)
 
         manage_quiz_button = tk.Button(self, text="Manage Quiz")
@@ -25,3 +26,8 @@ class TeacherFrame(MainPageFrame):
 
         forum_page = ForumPage(forum_window, user=self.user)
         forum_page.pack()
+
+    def manage_module(self):
+        self.place_forget()
+        module_page = ModuleManagementPage(self.master, self.user, self)
+        module_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)

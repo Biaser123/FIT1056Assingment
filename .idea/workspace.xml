@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="forum bug fixin">
+      <change afterPath="$PROJECT_DIR$/data/module_states.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/moduleManagementPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/StudentFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LearningModuleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/LearningModuleFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewProfileFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/ViewProfileFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moduleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduleFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_dic.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_dic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/teacherFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacherFrame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +63,8 @@
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\data" />
+      <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject\images" />
       <recent name="C:\Users\Wei\Monash\FIT1056\pythonProject" />
     </key>
   </component>

@@ -1,5 +1,5 @@
 module = [{'heading': "Module 1: Introduction to Python",
-            "content": """Welcome to CodeVenture! In this module, we will start to get familiar with Python programming language by covering
+           "content": """Welcome to CodeVenture! In this module, we will start to get familiar with Python programming language by covering
             basic information about Python.
 
             Let's get statrted!
@@ -45,8 +45,8 @@ module = [{'heading': "Module 1: Introduction to Python",
                 print("Hello, World!")
             """},
 
-            {"heading": 'Module 2 :Get to know Python syntax and variables', 
-            "content": """ Let's get started!
+          {"heading": 'Module 2 :Get to know Python syntax and variables',
+           "content": """ Let's get started!
             1. Execute Python Syntax
                 As we learned in the previous page, Python syntax can be executed by writing directly in the Command Line:
                 >>>print("Hello, World!")
@@ -90,8 +90,8 @@ module = [{'heading': "Module 1: Introduction to Python",
                 print("Hello, World!")
                 """},
 
-            {"heading": "Module 3: Python Data Types",
-            "content": """
+          {"heading": "Module 3: Python Data Types",
+           "content": """
             1. Built-in Data Types:
             In programming, data type is an important concept.
 
@@ -241,8 +241,8 @@ module = [{'heading': "Module 1: Introduction to Python",
 
                 The modulus operator turns out to be surprisingly useful. For example, you can check whether one number is divisible by another—if x % y is zero, then x is divisible by y. Also, you can extract the right-most digit or digits from a number. For example, x % 10 yields the right-most digit of x (in base 10). Similarly x % 100 yields the last two digits.
             """},
-            {'heading': "Module 4: String,List, Dictionary, and Conditionals",
-             'content': """
+          {'heading': "Module 4: String,List, Dictionary, and Conditionals",
+           'content': """
              1. Introduction to Conditionals
                 So far, our programs have been a series of statements. Yet programs frequently need to be more subtle with their behavior. For example, a messaging app might only set a message’s title bold if it has not been read by the user. Or a video game needs to update the position of all the characters that are not asleep. This is done with something called a selection or a conditional statement.
                 By the end of this section you should be able to:
@@ -535,10 +535,10 @@ module = [{'heading': "Module 1: Introduction to Python",
 
                     Choosing your type of Conditional
                     When adding conditionals to your program, you should also consider the kinds of conditionals that are at your disposal and what would fit best."""
-                        
-                    },
-                    {'heading': "Module 5:Loops and Functions",
-                     'content': """
+
+           },
+          {'heading': "Module 5:Loops and Functions",
+           'content': """
                 1. While looop
                 
                     The while Loop
@@ -873,103 +873,122 @@ module = [{'heading': "Module 1: Introduction to Python",
                     Example
                     def myfunction():
                     pass"""}
-                ]
+          ]
 
 quiz = [[{'question': "What is Python primarily used for?",
-           'options': ['Data Analysis', 'Web Development', 'All the above', 'None of the above'],
-           'correct option': 2},
-           {'question': "Which of the following is a characteristic of Python?",
-           'options': ['A compiled language', 'A dynamically typed language', 'A language with strict data type declarations', 'A language primarily used for game development'],
-           'correct option': 1},
-           {'question': "What is the Python interpreter?",
-           'options': ['A tool for writing Python code', 'A text editor', 'A program that executes Python code line by line', 'A code repository'],
-           'correct option': 2},
-           {'question': "How do you print 'Hello, World!' in Python?",
-           'options': ['console.log("Hello, World!")', 'print("Hello, World!")', 'System.out.println("Hello, World!")', 'print "Hello, World!"'],
-           'correct option': 1},
-           {'question': "What is a variable in Python?",
-           'options': ['A value that never changes', 'A reference to a memory location containing data', 'A type of loop', 'A function'],
-           'correct option': 1},
-           {'question': "Which keyword is used to take user input in Python?",
-           'options': ['input()', ' user_input()', 'get_input()', 'userInput()'],
-           'correct option': 0},
-           ],
-           [{'question': "Which symbol is used to assign a value to a variable in Python?",
-           'options': [':=', '=>', '=', '=='],
-           'correct option': 2},
-           {'question': "What is the correct way to declare a variable in Python?",
-           'options': ['variable name = value', 'var_name: value', 'variable_name = value', '1_variable = value'],
-           'correct option': 2},
-           {'question': "Which of the following variable names is not allowed in Python?",
-           'options': ['my_variable', '123variable', '_variable', 'variable123'],
-           'correct option': 1},
-           {'question': "Which operator is used for exponentiation in Python?",
-           'options': ['^', '**', '//', '&'],
-           'correct option': 1},
-           {'question': "What is the purpose of the == operator in Python?",
-           'options': ['Assignment', 'Equality comparison', ' Inequality comparison', 'Concatenation'],
-           'correct option': 1}
-           ],
-           [{'question': "What is the data type of the variable age if it is assigned the value 25?",
-           'options': ['String', 'Integer', 'Float', 'Boolean'],
-           'correct option': 1},
-           {'question': "Which of the following is a floating-point number in Python?",
-           'options': [' 42', '3.14', "'Hello'", 'True'],
-           'correct option': 1},
-           {'question': "Which data type is used to store a sequence of elements in Python?",
-           'options': [' String', 'Integer', 'List', 'Boolean'],
-           'correct option': 2},
-           {'question': "What is the data type of the variable is_raining if it is assigned the value True?",
-           'options': [' String', 'Integer', 'List', 'Boolean'],
-           'correct option': 3}
-           ],
-           [{'question': "Which of the following best describes a Python list?",
-           'options': ['A collection of key-value pairs', 'An ordered, mutable sequence of elements', 'A dictionary with unique keys', 'A data type used for storing characters'],
-           'correct option': 1},
-           {'question': "How do you access an element in a Python list by its index?",
-           'options': ['Using a key', 'Using a loop', 'Using square brackets with the index', 'Using parentheses with the index'],
-           'correct option': 2},
-           {'question': "How do you add an element to the end of a list in Python?",
-           'options': ['Using the append() method', 'Using the insert() method', 'Using the add() function', 'You cannot add elements to the end of a list'],
-           'correct option': 0},
-           {'question': "How do you access a value in a dictionary using its key?",
-           'options': ['Using square brackets with the value', 'Using parentheses with the key', 'Using a loopn', 'You cannot access values in a dictionary'],
-           'correct option': 0},
-           {'question': "What is a Python dictionary?",
-           'options': ['A collection of ordered elements', 'A mutable sequence of key-value pairs', ' An unordered collection of key-value pairs', 'A list with numeric indices'],
-           'correct option': 2},
-           {'question': "What is the result of the following code: my_dict = {'apple': 3, 'banana': 2, 'cherry': 5}?",
-           'options': [' A list of fruit names', 'A dictionary with key-value pairs', ' An error', 'The number 5'],
-           'correction option': 0},
-           {'question': "What is the primary purpose of the if statement in Python?",
-           'options': ['To declare variables', 'To create loops', ' To make decisions based on conditions', 'To print text'],
-           'correction option': 2},
-           {'question': "In Python, which statement allows you to specify alternative conditions to be executed if the initial condition is not met?",
-           'options': ['then', 'elif', 'else', 'unless'],
-           'correction option': 1},
-           {'question': "What is the result of the expression 5 > 3 in Python?",
-           'options': ['True', 'False', '5', '3'],
-           'correction option': 0}],
-           [{'question': "What is the main purpose of a while loop in Python?",
-           'options': ['To execute a block of code a specified number of times.', 'To create an infinite loop that never ends.', 'To execute a block of code as long as a condition is true.', 'To iterate through a list or tuple.'],
-           'correction option': 2},
-           {'question': "Which keyword is used to exit a while loop prematurely?",
-           'options': ['exit', 'break','continue', 'finish'],
-           'correction option': 1},
-           {'question': "What is the purpose of the 'continue' statement in a while loop?",
-           'options': ['To restart the loop from the beginning.', 'To skip the rest of the current iteration and continue with the next one.','To exit the loop.', ' To print a message to the console.'],
-           'correction option': 1},
-           {'question': "When would you use a for loop in Python?",
-           'options': [' To create an infinite loop.', 'To execute a block of code a specific number of times.','To exit the program.', 'To execute code as long as a condition is true.'],
-           'correction option': 1},
-           {'question': "What is the purpose of the 'range' function in a for loop?",
-           'options': ['To specify the range of numbers to be looped through.', 'To generate random numbers.','To count the number of loop iterations.', 'To exit the loop.'],
-           'correction option': 0},
-           {'question': """What is the output of the following code: 
+          'options': ['Data Analysis', 'Web Development', 'All the above', 'None of the above'],
+          'correct option': 2},
+         {'question': "Which of the following is a characteristic of Python?",
+          'options': ['A compiled language', 'A dynamically typed language',
+                      'A language with strict data type declarations',
+                      'A language primarily used for game development'],
+          'correct option': 1},
+         {'question': "What is the Python interpreter?",
+          'options': ['A tool for writing Python code', 'A text editor',
+                      'A program that executes Python code line by line', 'A code repository'],
+          'correct option': 2},
+         {'question': "How do you print 'Hello, World!' in Python?",
+          'options': ['console.log("Hello, World!")', 'print("Hello, World!")', 'System.out.println("Hello, World!")',
+                      'print "Hello, World!"'],
+          'correct option': 1},
+         {'question': "What is a variable in Python?",
+          'options': ['A value that never changes', 'A reference to a memory location containing data',
+                      'A type of loop', 'A function'],
+          'correct option': 1},
+         {'question': "Which keyword is used to take user input in Python?",
+          'options': ['input()', ' user_input()', 'get_input()', 'userInput()'],
+          'correct option': 0},
+         ],
+        [{'question': "Which symbol is used to assign a value to a variable in Python?",
+          'options': [':=', '=>', '=', '=='],
+          'correct option': 2},
+         {'question': "What is the correct way to declare a variable in Python?",
+          'options': ['variable name = value', 'var_name: value', 'variable_name = value', '1_variable = value'],
+          'correct option': 2},
+         {'question': "Which of the following variable names is not allowed in Python?",
+          'options': ['my_variable', '123variable', '_variable', 'variable123'],
+          'correct option': 1},
+         {'question': "Which operator is used for exponentiation in Python?",
+          'options': ['^', '**', '//', '&'],
+          'correct option': 1},
+         {'question': "What is the purpose of the == operator in Python?",
+          'options': ['Assignment', 'Equality comparison', ' Inequality comparison', 'Concatenation'],
+          'correct option': 1}
+         ],
+        [{'question': "What is the data type of the variable age if it is assigned the value 25?",
+          'options': ['String', 'Integer', 'Float', 'Boolean'],
+          'correct option': 1},
+         {'question': "Which of the following is a floating-point number in Python?",
+          'options': [' 42', '3.14', "'Hello'", 'True'],
+          'correct option': 1},
+         {'question': "Which data type is used to store a sequence of elements in Python?",
+          'options': [' String', 'Integer', 'List', 'Boolean'],
+          'correct option': 2},
+         {'question': "What is the data type of the variable is_raining if it is assigned the value True?",
+          'options': [' String', 'Integer', 'List', 'Boolean'],
+          'correct option': 3}
+         ],
+        [{'question': "Which of the following best describes a Python list?",
+          'options': ['A collection of key-value pairs', 'An ordered, mutable sequence of elements',
+                      'A dictionary with unique keys', 'A data type used for storing characters'],
+          'correct option': 1},
+         {'question': "How do you access an element in a Python list by its index?",
+          'options': ['Using a key', 'Using a loop', 'Using square brackets with the index',
+                      'Using parentheses with the index'],
+          'correct option': 2},
+         {'question': "How do you add an element to the end of a list in Python?",
+          'options': ['Using the append() method', 'Using the insert() method', 'Using the add() function',
+                      'You cannot add elements to the end of a list'],
+          'correct option': 0},
+         {'question': "How do you access a value in a dictionary using its key?",
+          'options': ['Using square brackets with the value', 'Using parentheses with the key', 'Using a loopn',
+                      'You cannot access values in a dictionary'],
+          'correct option': 0},
+         {'question': "What is a Python dictionary?",
+          'options': ['A collection of ordered elements', 'A mutable sequence of key-value pairs',
+                      ' An unordered collection of key-value pairs', 'A list with numeric indices'],
+          'correct option': 2},
+         {'question': "What is the result of the following code: my_dict = {'apple': 3, 'banana': 2, 'cherry': 5}?",
+          'options': [' A list of fruit names', 'A dictionary with key-value pairs', ' An error', 'The number 5'],
+          'correction option': 0},
+         {'question': "What is the primary purpose of the if statement in Python?",
+          'options': ['To declare variables', 'To create loops', ' To make decisions based on conditions',
+                      'To print text'],
+          'correction option': 2},
+         {
+             'question': "In Python, which statement allows you to specify alternative conditions to be executed if the initial condition is not met?",
+             'options': ['then', 'elif', 'else', 'unless'],
+             'correction option': 1},
+         {'question': "What is the result of the expression 5 > 3 in Python?",
+          'options': ['True', 'False', '5', '3'],
+          'correction option': 0}],
+        [{'question': "What is the main purpose of a while loop in Python?",
+          'options': ['To execute a block of code a specified number of times.',
+                      'To create an infinite loop that never ends.',
+                      'To execute a block of code as long as a condition is true.',
+                      'To iterate through a list or tuple.'],
+          'correction option': 2},
+         {'question': "Which keyword is used to exit a while loop prematurely?",
+          'options': ['exit', 'break', 'continue', 'finish'],
+          'correction option': 1},
+         {'question': "What is the purpose of the 'continue' statement in a while loop?",
+          'options': ['To restart the loop from the beginning.',
+                      'To skip the rest of the current iteration and continue with the next one.', 'To exit the loop.',
+                      ' To print a message to the console.'],
+          'correction option': 1},
+         {'question': "When would you use a for loop in Python?",
+          'options': [' To create an infinite loop.', 'To execute a block of code a specific number of times.',
+                      'To exit the program.', 'To execute code as long as a condition is true.'],
+          'correction option': 1},
+         {'question': "What is the purpose of the 'range' function in a for loop?",
+          'options': ['To specify the range of numbers to be looped through.', 'To generate random numbers.',
+                      'To count the number of loop iterations.', 'To exit the loop.'],
+          'correction option': 0},
+         {'question': """What is the output of the following code: 
             for i in range(1, 6):
                 if i == 3:
                     continue
                 print(i)""",
-           'options': ['1 2 3 4 5', '1 2 4 5','1 2', '3'],
-           'correction option': 1}]
-           ]
+          'options': ['1 2 3 4 5', '1 2 4 5', '1 2', '3'],
+          'correction option': 1}]
+        ]
