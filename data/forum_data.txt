@@ -1,5 +1,2 @@
-Post|1|g1|a|teacher
-Post|2|g2|b|teacher
-Post|3|g3|3|teacher
-Comment|1|teacher|1|nj
-Comment|2|teacher|3|wd
+Post|1|g1|a|admin
+Post|3|g3|ad|teacher

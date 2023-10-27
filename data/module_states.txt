@@ -1,5 +1,5 @@
 Module 1,Active
 Module 2,Active
-Module 3,Inactive
+Module 3,Active
 Module 4,Inactive
 Module 5,Inactive

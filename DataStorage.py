@@ -2,7 +2,6 @@ import datetime
 import json
 
 
-
 class Student:
     def __init__(self, student_id, name, age):
         self.student_id = student_id
@@ -87,7 +86,7 @@ class ProgressTracker:
             print("Data restored from a file.")
         except FileNotFoundError:
             print("No backup data file found.")
-    
+
     def print_results(self):
         # check which quizzes user has completed, and add to the count
         for quiz in self.quizzes:
@@ -96,20 +95,18 @@ class ProgressTracker:
 
         # computes the percentage of total quizzes and modules the user has completed
         completion_status = ((quiz_count) / (len(self.quizzes))) * 100
-        
+
         # if user has finished everything, displays congratulatory message instead of stats
         if completion_status == 100:
             congratulations = "Well Done! You have completed all content."
             return congratulations
-        
+
         # prints progress stats of user 
         progress = (f"--- Progress Report ---"
                     f"\nQuizzes: ({quiz_count}/{len(quizzes)} complete\nIn total, you have completed"
                     f" {completion_status}% of the game.")
-                
-        print(progress)
-        
 
+        print(progress)
 
 
 if __name__ == "__main__":

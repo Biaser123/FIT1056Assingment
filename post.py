@@ -22,10 +22,14 @@ class Post:
     def get_comments(self):
         return Comment.get_comments_for_post(self)
 
-    @staticmethod
-    def delete_post(post_id):
-        if post_id in Post.posts:
-            del Post.posts[post_id]
+    def delete(self):
+        # Delete the post from the data structures
+        if self.post_id in Post.posts:
+            del Post.posts[self.post_id]
+
+        for comment_id in list(Comment.comments.keys()):
+            if Comment.comments[comment_id].post == self:
+                Comment.comments[comment_id].delete()
 
 
 class Comment:
@@ -44,4 +48,10 @@ class Comment:
     def get_comments_for_post(post):
         comments_for_post = [comment for comment in Comment.comments.values() if comment.post == post]
         return comments_for_post
+
+    def delete(self):
+        # Delete the comment from the data structures
+        if self.comment_id in Comment.comments:
+            del Comment.comments[self.comment_id]
+
 

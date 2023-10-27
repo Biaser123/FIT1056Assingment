@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="forum bug fixin">
-      <change afterPath="$PROJECT_DIR$/data/module_states.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moduleManagementPage.py" afterDir="false" />
+    <list default="true" id="9e70553c-3ac4-4352-81a7-43f994be5d7f" name="Changes" comment="manage module features imp">
+      <change afterPath="$PROJECT_DIR$/adminForumPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LearningModuleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/LearningModuleFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStorage.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataStorage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForumPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ForumPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewProfileFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/ViewProfileFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moduleFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduleFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_dic.py" beforeDir="false" afterPath="$PROJECT_DIR$/module_dic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teacherFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacherFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/forum_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/forum_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/module_states.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/module_states.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/post.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697953055452</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="manage module features imp">
+      <option name="closed" value="true" />
+      <created>1698396048621</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1698396048621</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -311,6 +319,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="forum bug fixin" />
-    <option name="LAST_COMMIT_MESSAGE" value="forum bug fixin" />
+    <MESSAGE value="manage module features imp" />
+    <option name="LAST_COMMIT_MESSAGE" value="manage module features imp" />
   </component>
 </project>

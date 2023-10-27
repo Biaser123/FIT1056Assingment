@@ -4,15 +4,6 @@ from tkinter import ttk, messagebox
 from post import Comment, Post
 
 
-def save_data_to_file():
-    with open("data/forum_data.txt", "w") as file:
-        for post_id, post in Post.posts.items():
-            file.write(f"Post|{post_id}|{post.title}|{post.content.strip()}|{post.user.username}\n")
-
-        for comment_id, comment in Comment.comments.items():
-            file.write(f"Comment|{comment_id}|{comment.user.username}|{comment.post.post_id}|{comment.content}\n")
-
-
 class ForumPage(tk.Frame):
 
     def __init__(self, master, user):
@@ -124,6 +115,14 @@ class ForumPage(tk.Frame):
                                                                        content_text.get("1.0", tk.END)))
         create_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
+    def save_data_to_file(self):
+        with open("data/forum_data.txt", "w") as file:
+            for post_id, post in Post.posts.items():
+                file.write(f"Post|{post_id}|{post.title}|{post.content.strip()}|{post.user.username}\n")
+
+            for comment_id, comment in Comment.comments.items():
+                file.write(f"Comment|{comment_id}|{comment.user.username}|{comment.post.post_id}|{comment.content}\n")
+
     def submit_new_post(self, title, content):
         if not title or not content:
             messagebox.showerror("Error", "Please enter both title and content.")
@@ -135,7 +134,7 @@ class ForumPage(tk.Frame):
 
         self.user.create_post(title, content)
         self.update_post_list()
-        save_data_to_file()
+        self.save_data_to_file()
         self.new_post_window.destroy()
 
     def add_comment(self, selected_post, new_comment_entry, comment_listbox):
@@ -151,7 +150,7 @@ class ForumPage(tk.Frame):
         new_comment_content = new_comment_entry.get()
         new_comment = self.user.create_comment(selected_post, new_comment_content)
         self.update_comment_list(selected_post)
-        save_data_to_file()
+        self.save_data_to_file()
         new_comment_entry.delete(0, tk.END)
 
     def load_post_data_from_file(self):
