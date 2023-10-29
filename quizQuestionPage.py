@@ -79,7 +79,7 @@ class quizQuestion(tk.Frame):
         
 
     def save_score(self):
-        with open("quiz_score.txt", "w") as file:
+        with open("data/quiz_score.txt", "w") as file:
             file.write(f"{self.user.get_username()}: {self.score}/{len(self.questions)}")
         
         self.question_label.config(text=f"Quiz completed! Your score: {self.score}/{len(self.questions)}")
