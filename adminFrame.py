@@ -4,6 +4,7 @@ from tkinter import font
 from mainPageFrame import MainPageFrame
 from moduleManagementPage import ModuleManagementPage
 from adminForumPage import AdminForumPage
+from login import CodeVenture
 
 
 class AdminFrame(MainPageFrame):
@@ -35,6 +36,9 @@ class AdminFrame(MainPageFrame):
         manage_forum_button = tk.Button(second_row_frame, text="Manage Forum", command=self.manage_forum,width=15,height=6,font=custom_font)
         manage_forum_button.pack(side="left", padx=10, pady=5)
 
+        user_activation_button = tk.Button(second_row_frame, text="Activate/Deactivate a User", command=self.user_activation,width=15,height=6,font=custom_font)
+        user_activation_button.pack(side="left", padx=10, pady=5)
+
     def manage_module(self):
         self.place_forget()
         module_page = ModuleManagementPage(self.master, self.user, self)
@@ -46,3 +50,7 @@ class AdminFrame(MainPageFrame):
 
         forum_page = AdminForumPage(forum_window, self.user)
         forum_page.pack()
+
+    def user_activation(self):
+        self.place_forget()
+        
