@@ -9,20 +9,18 @@ class Interface(tk.Tk):
     """
     Class definition for the Interface class
     """
-    def __init__(self, title, width=960, height=540):
-        """
-        Constructor for the Interface class,
-        the main window for the HCMS.
-        :param title: str
-        :param width: int - default 960 pixels
-        :param height: int - default 540 pixels
-        """
+    def __init__(self, title):
         super().__init__()
         self.title(title)
-        self.geometry(f"{width}x{height}")
-        "set the windows"
+        self.overrideredirect(True)
 
+        close_button = tk.Button(self, text="X", command=self.destroy,width=5,height=1,bg="lightgray")
+        close_button.pack(anchor="ne", padx=10, pady=10)
+        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}")
 
+        #Constructor for the Interface class,
+        #the main window for the HCMS.
+        
 if __name__ == "__main__":
     # DO NOT MODIFY THIS
     hcms = Interface("CodeVenture")
