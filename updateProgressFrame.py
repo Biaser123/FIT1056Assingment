@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 from module_dic import *
+
+custom_font = ("Helvetica", 16) 
+red_color = "red"
+
 class updateProgressFrame(tk.Frame):
     def __init__(self, master, user, return_page):
         super().__init__(master)
