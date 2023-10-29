@@ -36,6 +36,11 @@ class updateProgressFrame(tk.Frame):
     def update_progress_bar(self):
         total_progress = sum(self.progress_var.values())
         self.progress_bar["value"] = total_progress
+        if hasattr(self, "username_label") and total_progress != 100:
+            self.username_label.pack_forget()
+        elif total_progress == 100:
+            self.username_label = tk.Label(self, text="Well Done! You completed all Modules and Quizzes!",font=custom_font, fg=red_color,anchor='n')
+            self.username_label.pack()
 
     def on_checkbox_toggle(self,task_name):
         if self.checkboxes[task_name].get():
