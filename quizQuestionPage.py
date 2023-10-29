@@ -12,6 +12,15 @@ class quizQuestion(tk.Frame):
         self.score = 0
         self.current_question = 0
         self.selected_answers ={}
+
+        timemessage=tk.Label(self, text= "You have 30 minutes to complete this Quiz", font= ("Arial bold",13))
+        timemessage.pack()
+        timeduration = 5
+        self.end_time = datetime.now()+timedelta(seconds= timeduration)
+        self.time_label = tk.Label(self, text="", font= ('Arial',20))
+        self.time_label.pack()
+        self.update_timer()
+        
         for i in range (1,6):
             if quiz_selected == f"Quiz {i}":
                 self.questions = quiz[i-1]
@@ -19,6 +28,7 @@ class quizQuestion(tk.Frame):
                 self.question_label.pack(pady=10)
                 self.user_answer = tk.IntVar()
                 self.user_answer.set(-1)
+
                 
 
                 self.radio_buttons = []
@@ -80,4 +90,15 @@ class quizQuestion(tk.Frame):
     def quiz_return(self):
         self.place_forget()
         self.quiz_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+    def update_timer(self):
+        current_time =datetime.now()
+        time_left = self.end_time -current_time
+        if time_left.total_seconds()<=0:
+            self.time_label.config(text = f"Time's up! Your score: {self.score}/{len(self.questions)}")
+            self.save_score()
+            self.after(1000, self.quiz_return)
+        else:
+            self.time_label.config(text=str(time_left).split(".")[0])
+            self.after(1000, self.update_timer)
 
