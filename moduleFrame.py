@@ -11,7 +11,7 @@ class moduleFrame(tk.Frame):
         self.module_selected = module_selected
         self.user = user
 
-        canvas = tk.Canvas(self, width=1300, height=500)
+        canvas = tk.Canvas(self, width=1200, height=500)
         canvas.grid(row=0, column=0)
         scroll_bar_y = tk.Scrollbar(self, orient='vertical', command=canvas.yview)
         scroll_bar_y.grid(row=0, column=1, sticky='ns')
