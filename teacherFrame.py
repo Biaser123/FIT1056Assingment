@@ -3,7 +3,7 @@ import tkinter as tk
 from ForumPage import ForumPage
 from mainPageFrame import MainPageFrame
 from moduleManagementPage import ModuleManagementPage
-
+from feedbackPage import FeedbackFrame
 
 class TeacherFrame(MainPageFrame):
     def __init__(self, user, master=None):
