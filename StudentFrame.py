@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import font
 
 from ForumPage import ForumPage
 from mainPageFrame import MainPageFrame
@@ -9,6 +10,7 @@ from updateProgressFrame import updateProgressFrame
 from feedbackPage import FeedbackFrame
 
 
+
 class StudentFrame(MainPageFrame):
     def __init__(self, user, master):
         super().__init__(master)
@@ -16,22 +18,32 @@ class StudentFrame(MainPageFrame):
         self.user = user
 
     def create_widgets(self):
-        super().create_widgets()
 
-        module_button = tk.Button(self, text="Learning Module", command=self.learning_module)
-        module_button.pack(fill=tk.X, padx=10, pady=5)
+        custom_font = font.Font(size=16)
 
-        take_quiz_button = tk.Button(self, text="Take Challenge", command=self.take_challenge)
-        take_quiz_button.pack(fill=tk.X, padx=10, pady=5)
+        first_row_frame = tk.Frame(self)
+        first_row_frame.pack(side="top")
 
-        forum_button = tk.Button(self, text="View Forum", command=self.view_forum)
-        forum_button.pack(fill=tk.X, padx=10, pady=5)
+        profile_button = tk.Button(first_row_frame, text="Profile", command= self.view_profile,width=15,height=6,font=custom_font)
+        profile_button.pack(side="left", padx=10, pady=5)
 
-        feedback_button = tk.Button(self, text="Feedback",command= self.feedback_page)
-        feedback_button.pack(fill = tk.X, padx=10, pady=5)
+        module_button = tk.Button(first_row_frame, text="Learning Module", command=self.learning_module,width=15,height=6,font=custom_font)
+        module_button.pack(side="left", padx=10, pady=5)
 
-        update_progress = tk.Button(self, text="Update Progress", command =self.update_progress)
-        update_progress.pack(fill=tk.X, padx=10, pady=5)
+        take_quiz_button = tk.Button(first_row_frame, text="Take Challenge", command=self.take_challenge,width=15,height=6,font=custom_font)
+        take_quiz_button.pack(side="left", padx=10, pady=5)
+
+        second_row_frame = tk.Frame(self)
+        second_row_frame.pack(side="top")
+
+        forum_button = tk.Button(second_row_frame, text="View Forum", command=self.view_forum,width=15,height=6,font=custom_font)
+        forum_button.pack(side="left", padx=10, pady=5)
+
+        feedback_button = tk.Button(second_row_frame, text="Feedback",command= self.feedback_page,width=15,height=6,font=custom_font)
+        feedback_button.pack(side="left", padx=10, pady=20)
+
+        update_progress = tk.Button(second_row_frame, text="Update Progress", command =self.update_progress,width=15,height=6,font=custom_font)
+        update_progress.pack(side="left", padx=10, pady=5)
 
     def view_forum(self):
         forum_window = tk.Toplevel(self.master)
