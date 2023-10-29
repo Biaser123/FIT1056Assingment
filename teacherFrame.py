@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import font
 
 from ForumPage import ForumPage
 from mainPageFrame import MainPageFrame
@@ -10,18 +11,30 @@ class TeacherFrame(MainPageFrame):
         super().__init__(user, master)
 
     def create_widgets(self):
-        super().create_widgets()
-        manage_module_button = tk.Button(self, text="Manage Module", command=self.manage_module)
-        manage_module_button.pack(fill=tk.X, padx=10, pady=5)
-
-        manage_quiz_button = tk.Button(self, text="Manage Quiz")
-        manage_quiz_button.pack(fill=tk.X, padx=10, pady=5)
-
-        forum_button = tk.Button(self, text="View Forum", command=self.view_forum)
-        forum_button.pack(fill=tk.X, padx=10, pady=5)
         
-        feedback_button = tk.Button(self, text="Feedback",command= self.feedback_page)
-        feedback_button.pack(fill = tk.X, padx=10, pady=5)
+        custom_font = font.Font(size=16)
+
+        first_row_frame = tk.Frame(self)
+        first_row_frame.pack(side="top")
+
+        profile_button = tk.Button(first_row_frame, text="Profile", command= self.view_profile,width=15,height=6,font=custom_font)
+        profile_button.pack(side="left", padx=10, pady=5)
+
+        manage_module_button = tk.Button(first_row_frame, text="Manage Module", command=self.manage_module,width=15,height=6,font=custom_font)
+        manage_module_button.pack(side="left", padx=10, pady=5)
+
+        manage_quiz_button = tk.Button(first_row_frame, text="Manage Quiz",width=15,height=6,font=custom_font)
+        manage_quiz_button.pack(side="left", padx=10, pady=5)
+
+        second_row_frame = tk.Frame(self)
+        second_row_frame.pack(side="top")
+
+        forum_button = tk.Button(second_row_frame, text="View Forum", command=self.view_forum,width=15,height=6,font=custom_font)
+        forum_button.pack(side="left", padx=10, pady=5)
+        
+        feedback_button = tk.Button(second_row_frame, text="Feedback",command= self.feedback_page,width=15,height=6,font=custom_font)
+        feedback_button.pack(side="left", padx=10, pady=5)
+
 
     def view_forum(self):
         forum_window = tk.Toplevel(self.master)
