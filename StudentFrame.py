@@ -62,7 +62,7 @@ class StudentFrame(MainPageFrame):
         forum_window.title("Forum")
 
         forum_page = ForumPage(forum_window, user=self.user)
-        forum_page.place(relx=0.5, rely=0.5,anchor=tk.CENTER)
+        forum_page.pack()
 
     def learning_module(self):
         self.place_forget()
