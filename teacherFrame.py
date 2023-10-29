@@ -19,6 +19,9 @@ class TeacherFrame(MainPageFrame):
 
         forum_button = tk.Button(self, text="View Forum", command=self.view_forum)
         forum_button.pack(fill=tk.X, padx=10, pady=5)
+        
+        feedback_button = tk.Button(self, text="Feedback",command= self.feedback_page)
+        feedback_button.pack(fill = tk.X, padx=10, pady=5)
 
     def view_forum(self):
         forum_window = tk.Toplevel(self.master)
@@ -31,3 +34,8 @@ class TeacherFrame(MainPageFrame):
         self.place_forget()
         module_page = ModuleManagementPage(self.master, self.user, self)
         module_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+    def feedback_page(self):
+        self.place_forget()
+        feedback_page= FeedbackFrame(self.master,self.user, self)
+        feedback_page.place(relx=.5, rely=.5, anchor= tk.CENTER)
