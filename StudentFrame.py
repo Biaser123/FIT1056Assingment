@@ -5,6 +5,8 @@ from ForumPage import ForumPage
 from mainPageFrame import MainPageFrame
 from LearningModuleFrame import LearningModulePage
 from ChallengePage import ChallengePage
+from updateProgressFrame import updateProgressFrame
+from feedbackPage import FeedbackFrame
 
 
 class StudentFrame(MainPageFrame):
