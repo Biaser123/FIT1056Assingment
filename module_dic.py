@@ -950,18 +950,18 @@ quiz = [[{'question': "What is Python primarily used for?",
           'correct option': 2},
          {'question': "What is the result of the following code: my_dict = {'apple': 3, 'banana': 2, 'cherry': 5}?",
           'options': [' A list of fruit names', 'A dictionary with key-value pairs', ' An error', 'The number 5'],
-          'correction option': 0},
+          'correct option': 0},
          {'question': "What is the primary purpose of the if statement in Python?",
           'options': ['To declare variables', 'To create loops', ' To make decisions based on conditions',
                       'To print text'],
-          'correction option': 2},
+          'correct option': 2},
          {
              'question': "In Python, which statement allows you to specify alternative conditions to be executed if the initial condition is not met?",
              'options': ['then', 'elif', 'else', 'unless'],
              'correction option': 1},
          {'question': "What is the result of the expression 5 > 3 in Python?",
           'options': ['True', 'False', '5', '3'],
-          'correction option': 0}],
+          'correct option': 0}],
         [{'question': "What is the main purpose of a while loop in Python?",
           'options': ['To execute a block of code a specified number of times.',
                       'To create an infinite loop that never ends.',
@@ -970,25 +970,93 @@ quiz = [[{'question': "What is Python primarily used for?",
           'correction option': 2},
          {'question': "Which keyword is used to exit a while loop prematurely?",
           'options': ['exit', 'break', 'continue', 'finish'],
-          'correction option': 1},
+          'correct option': 1},
          {'question': "What is the purpose of the 'continue' statement in a while loop?",
           'options': ['To restart the loop from the beginning.',
                       'To skip the rest of the current iteration and continue with the next one.', 'To exit the loop.',
                       ' To print a message to the console.'],
-          'correction option': 1},
+          'correct option': 1},
          {'question': "When would you use a for loop in Python?",
           'options': [' To create an infinite loop.', 'To execute a block of code a specific number of times.',
                       'To exit the program.', 'To execute code as long as a condition is true.'],
-          'correction option': 1},
+          'correct option': 1},
          {'question': "What is the purpose of the 'range' function in a for loop?",
           'options': ['To specify the range of numbers to be looped through.', 'To generate random numbers.',
                       'To count the number of loop iterations.', 'To exit the loop.'],
-          'correction option': 0},
+          'correct option': 0},
          {'question': """What is the output of the following code: 
             for i in range(1, 6):
                 if i == 3:
                     continue
                 print(i)""",
           'options': ['1 2 3 4 5', '1 2 4 5', '1 2', '3'],
-          'correction option': 1}]
+          'correct option': 1}]
         ]
+
+challenges = [  {'heading': 'Challenge 1: Basic Conversation',
+                'content': """Create a conversation below:
+                                "Hi, my name is ..." (put your name in )
+                                "Nice to meet you" 
+                The result should be shown in the console exactly the same as the above quotations"""},
+                {'heading': 'Challenge 2: Mad Libs Game',
+                  'content': """This challenge is asking you to become an interesting story teller by creating a program where you can input nouns, verbs, and adjectives to
+                   generate a humorous story. The code should ask you user to enter an adjective, a place, a noun, a feature, an animal, and a plural noun to complete a story.
+                   Here is the guidelines to follow as a hint for your code:
+
+                    # Create a Mad Libs story template with placeholders for user inputs
+                    mad_libs_story = "Once upon a time, in a [adjective] [place], there lived a [noun]. This [noun] was known for its [adjective] [feature]. One day, a [adjective] [animal] came to visit. The [animal] and the [noun] became fast friends and had many [noun_plural] together."
+
+                    # Ask the user for input to fill in the placeholders
+                    adjective = input("Enter an adjective: ")
+                    ##TODO: Add your code below this line
+
+                    # Fill in the story template with user inputs
+                    mad_libs_story = mad_libs_story.replace("[adjective]", adjective) 
+                    ##TODO: Add your code below this line
+
+                    # Display the completed Mad Libs story
+                    ##TODO: Add your code below this line """},
+
+                {'heading': 'Challenge 3: Guessing Game',
+                  'content': """In this challenge, you are asked to create a game called "Guess The Number. The rules are as followed:
+                                In your game, the secret number is created randomly (by importing 'random' library) and user should be
+                                 asked to enter a number from the console. There should be some conditionals to check if the input number 
+                                  is correct or not. You should also include a variable called 'attempts' to count for the attemtps the user
+                                   has made to decide who is the winner (by having smallest number of attempts)"""},
+                {'heading': 'Challenge 4: Rock-Paper-Scissors',
+                  'content':"""You are about challenge the computer for a Rock-Paper-Scissors game. Before that, you have to create the 'battle field' for you and 
+                  the computer to challenge each other for this classical game of the world. Your program should include the 'random' library. Here is a suggested
+                  step you should follow to create the 'battle field': 
+                  
+                  import random
+                  # Define the choices for the game (est: 1 line)
+                  ##TODO: Add your code below this line 
+
+                  # Get the user's choice (est: 1 line)
+                  ##TODO: Add your code below this line 
+
+                  # Check if the user's choice is valid 
+                  ##TODO: Add your code below this line 
+                    # Generate a random choice for the computer(est: 1 line)
+                    ##TODO: Add your code below this line 
+
+                    # Display the choices of the user and the computer(est: 1 line)
+                    ##TODO: Add your code below this line 
+
+                    # Determine the winner of the game (as long as you want)
+                    ##TODO: Add your code below this line.
+            
+                Note: Your code should return the result in the console stating who is the winner. 
+                  """ },
+                {'heading': 'Challenge 5: Hangman Game',
+                  'content': """This is another classical game that you hmight have played once or more than one time at school. Now, I challenge
+                  you to create a this game on a computer. The game should follow the same Hangman's rule. In this task, there will not be any guidelines
+                  to increase the difficulty of the challenge. Here is what we expect your code should do:
+                    1. A list contains word to be guessed (should be randomly picked from the list)
+                    2. The game should count the number of attempts and wrong guesses for penalties
+                    3. The game should prompt user to input their guessing letter all over and all over again until the game is finished
+                    4. The game should displat appropriate messages when user makes good guess or wrong guess, and there should be a message at
+                        the end of the game the reveal the guessing word and shows whether the user has won or lost the game based on the maximum given attempts
+                        
+                    Good Luck!""" }
+                  ]
