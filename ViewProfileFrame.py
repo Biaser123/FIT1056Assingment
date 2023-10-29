@@ -72,7 +72,7 @@ class ViewProfileFrame(tk.Frame):
 
     def load_user_data(self, username_to_find):
         self.user_data = {}
-        with open("registered_users.txt", "r") as file:
+        with open("data/registered_users.txt", "r") as file:
             for line in file:
                 data = line.strip().split(',')
                 username = data[0]
@@ -87,10 +87,10 @@ class ViewProfileFrame(tk.Frame):
         return self.user_data
 
     def update_user_data(self, updated_user_data):
-        with open("registered_users.txt", "r") as file:
+        with open("data/registered_users.txt", "r") as file:
             lines = file.readlines()
 
-        with open("registered_users.txt", "w") as file:
+        with open("data/registered_users.txt", "w") as file:
             for line in lines:
                 data = line.strip().split(',')
                 username = data[0]
