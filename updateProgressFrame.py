@@ -13,7 +13,7 @@ class updateProgressFrame(tk.Frame):
         self.return_page =return_page
         self.number_of_tasks = len(module)+len(quiz)
         self.progress_bar = ttk.Progressbar(self, maximum=100)
-        self.progress_bar.pack(fill=tk.X,pady=10)
+        self.progress_bar.pack(side="top",pady=10)
 
     
         self.progress_var ={}
@@ -31,10 +31,10 @@ class updateProgressFrame(tk.Frame):
         for task_name in enumerate(self.progress_var):
             self.checkboxes[task_name] = tk.BooleanVar()
             checkbox =tk.Checkbutton(self, text = task_name, variable= self.checkboxes[task_name],  command=lambda tn=task_name: self.on_checkbox_toggle(tn))
-            checkbox.pack(anchor="w", padx=10)
+            checkbox.pack(side="top", padx=10)
 
-        return_button = tk.Button(self, text = "Return", command=self.return_to_page)
-        return_button.pack(fill=tk.X, side= tk.TOP, ipady =5)
+        return_button = tk.Button(self, text = "Return", command=self.return_to_page, width=15)
+        return_button.pack(side="top", ipady =5)
 
     
     def update_progress_bar(self):
@@ -44,7 +44,7 @@ class updateProgressFrame(tk.Frame):
             self.username_label.pack_forget()
         elif total_progress == 100:
             self.username_label = tk.Label(self, text="Well Done! You completed all Modules and Quizzes!",font=custom_font, fg=red_color,anchor='n')
-            self.username_label.pack()
+            self.username_label.pack(side="bottom")
 
     def on_checkbox_toggle(self,task_name):
         if self.checkboxes[task_name].get():
