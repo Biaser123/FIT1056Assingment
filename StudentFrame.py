@@ -25,6 +25,12 @@ class StudentFrame(MainPageFrame):
         forum_button = tk.Button(self, text="View Forum", command=self.view_forum)
         forum_button.pack(fill=tk.X, padx=10, pady=5)
 
+        feedback_button = tk.Button(self, text="Feedback",command= self.feedback_page)
+        feedback_button.pack(fill = tk.X, padx=10, pady=5)
+
+        update_progress = tk.Button(self, text="Update Progress", command =self.update_progress)
+        update_progress.pack(fill=tk.X, padx=10, pady=5)
+
     def view_forum(self):
         forum_window = tk.Toplevel(self.master)
         forum_window.title("Forum")
@@ -51,3 +57,14 @@ class StudentFrame(MainPageFrame):
         challenge_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
         # self.place_forget()
+
+    def feedback_page(self):
+        self.place_forget()
+        feedback_page= FeedbackFrame(self.master,self.user, self)
+        feedback_page.place(relx=.5, rely=.5, anchor= tk.CENTER)
+
+    def update_progress(self):
+        self.place_forget()
+        update_page = updateProgressFrame(self.master, self.user, self)
+        # update_page.place(relx=.5, rely=.5, anchor= tk.CENTER)
+        update_page.pack(padx=10,pady=10)
