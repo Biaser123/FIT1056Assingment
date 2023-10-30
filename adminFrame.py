@@ -5,6 +5,7 @@ from mainPageFrame import MainPageFrame
 from moduleManagementPage import ModuleManagementPage
 from adminForumPage import AdminForumPage
 from login import CodeVenture
+from userActivation import userActivationFrame
 
 
 class AdminFrame(MainPageFrame):
@@ -65,5 +66,5 @@ class AdminFrame(MainPageFrame):
 
     def user_activation(self):
         self.place_forget()
-        # activation_page =  
+        activation_page =  userActivationFrame(self.master, self)
         activation_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
