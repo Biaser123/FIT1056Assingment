@@ -162,6 +162,7 @@ class LoginFrame(tk.Frame):
                         y_positions2 += 1
 
                         if y_positions2 >= 400:
+                            image_canvas.delete(shapes[i])
                             y_positions2 =0
                             one_loop()
 
@@ -185,6 +186,7 @@ class LoginFrame(tk.Frame):
                         y_positions += 1
 
                         if y_positions >= 645:
+                            image_canvas.delete(shapes[i])
                             y_positions = 0
                             two_loop()
 
@@ -214,6 +216,7 @@ class LoginFrame(tk.Frame):
                         y_positions2 += 1
 
                         if y_positions2 >= 400:
+                            image_canvas2.delete(shapes[i])
                             y_positions2 =0
                             one_loop()
 
@@ -237,6 +240,7 @@ class LoginFrame(tk.Frame):
                         y_positions2 += 1
 
                         if y_positions2 >= 645:
+                            image_canvas2.delete(shapes[i])
                             y_positions2 = 0
                             two_loop()
 
