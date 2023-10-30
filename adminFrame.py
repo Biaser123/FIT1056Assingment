@@ -6,6 +6,7 @@ from moduleManagementPage import ModuleManagementPage
 from adminForumPage import AdminForumPage
 from login import CodeVenture
 from userActivation import userActivationFrame
+from contentFilterPage import PostFilter
 
 
 class AdminFrame(MainPageFrame):
@@ -26,7 +27,7 @@ class AdminFrame(MainPageFrame):
 
         self.filter_image = tk.PhotoImage(file="images/filter.png")
         self.filter_image = self.filter_image.subsample(11) 
-        content_filter_button = tk.Button(first_row_frame, text="Content Filter",image=self.filter_image, compound=tk.TOP, width=140, height = 130, font=custom_font)
+        content_filter_button = tk.Button(first_row_frame, text="Content Filter",command=self.filteraccess,image=self.filter_image, compound=tk.TOP, width=140, height = 130, font=custom_font)
         content_filter_button.pack(side="left", padx=10, pady=5)
 
         self.module_image = tk.PhotoImage(file="images/module.png")
@@ -68,3 +69,9 @@ class AdminFrame(MainPageFrame):
         self.place_forget()
         activation_page =  userActivationFrame(self.master, self)
         activation_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+    def filteraccess(self):
+        self.place_forget()
+        filterpage = PostFilter(self.master,self.user,self)
+        filterpage.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
