@@ -60,7 +60,7 @@ class userActivationFrame(tk.Frame):
 
         for user_obj in existing_users:
             if user_obj.get_username() == user:
-                return [True, user_obj]
+                return [True, user_obj, autheticator.users.index(user_obj)]
             else:
                 return [False, user_obj]
 
@@ -73,11 +73,13 @@ class userActivationFrame(tk.Frame):
         :param:
         user: user to activate
         '''
-
         validity = self.check_user_exists(user)
+
         if validity[0] == True:
-            validity[1].is_active = True
-            self.success_text.set(f"{validity[1].get_username()}'s account has been activated")
+            with open("./data/registered_users.txt", "r+") as users_f:
+                users_lines = users_f.readlines()
+                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "1"
+                self.success_text.set(f"{validity[1].get_username()}'s account has been activated")
         else:
             self.success_text.set(f"User has not been found.")
 
@@ -90,8 +92,10 @@ class userActivationFrame(tk.Frame):
         '''
         validity = self.check_user_exists(user)
         if validity[0] == True:
-            validity[1].is_active = False
-            self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
+            with open("./data/registered_users.txt", "r+") as users_f:
+                users_lines = users_f.readlines()
+                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "0"
+                self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
         else:
             self.success_text.set(f"User has not been found.")
 
