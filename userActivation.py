@@ -90,7 +90,7 @@ class userActivationFrame(tk.Frame):
         '''
         validity = self.check_user_exists(user)
         if validity[0] == True:
-            validity[1].is_active = True
+            validity[1].is_active = False
             self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
         else:
             self.success_text.set(f"User has not been found.")
