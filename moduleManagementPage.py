@@ -10,21 +10,18 @@ class ModuleManagementPage(tk.Frame):
         self.master = master
         self.return_page = return_page
 
-        self.canvas = tk.Canvas(self, width=100, height=540)
+        self.canvas = tk.Canvas(self, width=1200, height=500)
         self.canvas.grid(row=0, column=0, sticky="nsew")
-        scroll_bar = tk.Scrollbar(self, orient='vertical', command=self.canvas.yview)
-        scroll_bar.grid(row=0, column=1, sticky='ns')
-        self.canvas.config(yscrollcommand=scroll_bar.set)
         self.scrollable_frame = tk.Frame(self.canvas)
-        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor='nw')
+        self.canvas.create_window((100, 25), window=self.scrollable_frame, anchor='nw')
         self.scrollable_frame.bind("<Configure>", self.on_frame_configure)
         self.canvas.bind("<Configure>", self.on_canvas_configure)
 
         for module in range(1, 6):
             self.create_module_button(f"Module {module}")
 
-        return_button = tk.Button(self.scrollable_frame, text="Return", command=self.return_func)
-        return_button.grid(row=len(self.module_buttons) + 1)
+        return_button = tk.Button(self.scrollable_frame, text="Return", command=self.return_func,width=10,height=3,bg="lightgray")
+        return_button.grid(row= 3, column=3)
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
@@ -49,12 +46,13 @@ class ModuleManagementPage(tk.Frame):
 
     def create_module_button(self, module_name):
         module_button = tk.Button(self.scrollable_frame, text=module_name,
-                                  command=lambda m=module_name: self.access_module(m))
-        module_button.grid(row=len(self.module_buttons) + 1, column=0)
+                                  command=lambda m=module_name: self.access_module(m),width=16,height=6,font=(14))
+        module_button.grid(row=1, column=len(self.module_buttons) + 1,padx=10,pady=10)
 
         active_button = tk.Button(self.scrollable_frame, text="Inactive",
-                                  command=lambda m=module_name: self.toggle_module_status(m))
-        active_button.grid(row=len(self.module_buttons) + 1, column=1)
+                                  command=lambda m=module_name: self.toggle_module_status(m),width=16,height=6,font=(14))
+        active_button.grid(row=2, column=len(self.module_buttons) + 1,padx=10,pady=10)
+
         self.module_buttons[module_name] = {"module_button": module_button, "active_button": active_button,
                                             "active": False}  # Set the initial state to Inactive
 
@@ -63,9 +61,11 @@ class ModuleManagementPage(tk.Frame):
         self.save_module_states()
 
         if self.module_buttons[module_name]["active"]:
-            self.module_buttons[module_name]["active_button"].config(text="Active")
+            self.module_buttons[module_name]["active_button"].config(text="Active\n(Click to deactivate)")
+            self.module_buttons[module_name]["active_button"].config(bg="light green")
         else:
-            self.module_buttons[module_name]["active_button"].config(text="Inactive")
+            self.module_buttons[module_name]["active_button"].config(text="Inactive\n(Click to activate)")
+            self.module_buttons[module_name]["active_button"].config(bg="#FFCCCC")
 
     def load_module_states(self):
         try:
@@ -76,9 +76,11 @@ class ModuleManagementPage(tk.Frame):
                     if module_name in self.module_buttons:
                         self.module_buttons[module_name]["active"] = (state == 'Active')
                         if state == 'Active':
-                            self.module_buttons[module_name]["active_button"].config(text="Active")
+                            self.module_buttons[module_name]["active_button"].config(text="Active\n(Click to deactivate)")
+                            self.module_buttons[module_name]["active_button"].config(bg="light green")
                         else:
-                            self.module_buttons[module_name]["active_button"].config(text="Inactive")
+                            self.module_buttons[module_name]["active_button"].config(text="Inactive\n(Click to activate)")
+                            self.module_buttons[module_name]["active_button"].config(bg="#FFCCCC")
         except FileNotFoundError:
             pass
 
