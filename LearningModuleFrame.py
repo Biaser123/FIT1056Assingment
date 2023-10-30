@@ -15,13 +15,11 @@ class LearningModulePage(tk.Frame):
         self.module_buttons = {}
         self.module_status_dict = self.load_module_states()
 
-        self.canvas = tk.Canvas(self, width=100, height=540)
-        self.canvas.grid(row=0, column=0, sticky="nsew")
-        scroll_bar = tk.Scrollbar(self, orient='vertical', command=self.canvas.yview)
-        scroll_bar.grid(row=0, column=1, sticky='ns')
-        self.canvas.config(yscrollcommand=scroll_bar.set)
+        self.canvas = tk.Canvas(self, width=1200, height=540)
+        self.canvas.grid()
+        self.canvas.grid_rowconfigure(0, weight=1)
         self.scrollable_frame = tk.Frame(self.canvas)
-        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor='nw')
+        self.canvas.create_window((600,250),window=self.scrollable_frame)
         self.scrollable_frame.bind("<Configure>", self.on_frame_configure)
         self.canvas.bind("<Configure>", self.on_canvas_configure)
 
@@ -30,8 +28,8 @@ class LearningModulePage(tk.Frame):
             module_name = f"Module {module}"
             self.create_module_button(module_name)
 
-        return_button = tk.Button(self.scrollable_frame, text="Return", command=self.return_func)
-        return_button.grid(row=module + 1)
+        return_button = tk.Button(self.scrollable_frame, text="Return", command=self.return_func,width=10,height=2)
+        return_button.grid(row=1,column=3,pady=(100,0))
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
@@ -44,15 +42,16 @@ class LearningModulePage(tk.Frame):
         self.canvas.config(scrollregion=self.canvas.bbox("all"))
 
     def create_module_button(self, module_name):
+        custom_font = ("Helvetica",20, 'bold')
         is_active = self.module_status_dict.get(module_name, True)
 
         if is_active:
             module_button = tk.Button(self.scrollable_frame, text=module_name,
-                                      command=lambda m=module_name: self.module(m))
-            module_button.grid(row=len(self.module_buttons) + 1, column=0)
+                                      command=lambda m=module_name: self.module(m),width=12,height=6,bg="lightblue",font=custom_font)
+            module_button.grid(row=0, column=len(self.module_buttons) + 1, padx=7)
         else:
-            module_button = tk.Label(self.scrollable_frame, text=module_name, fg="gray")
-            module_button.grid(row=len(self.module_buttons) + 1, column=0)
+            module_button = tk.Button(self.scrollable_frame, text=f"{module_name}\n(Unavailable)" , width=12,height=6, fg="gray",font=custom_font)
+            module_button.grid(row=0, column=len(self.module_buttons) + 1,padx=7)
 
         self.module_buttons[module_name] = module_button
 
