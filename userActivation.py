@@ -65,7 +65,6 @@ class userActivationFrame(tk.Frame):
                 return [False, user_obj]
 
 
-
     def activate_user(self, user):
         '''
         Sets user's is_active state to True
