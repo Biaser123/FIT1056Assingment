@@ -78,7 +78,7 @@ class userActivationFrame(tk.Frame):
         if validity[0] == True:
             with open("./data/registered_users.txt", "r+") as users_f:
                 users_lines = users_f.readlines()
-                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "1"
+                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "1\n"
                 self.success_text.set(f"{validity[1].get_username()}'s account has been activated")
 
                 for line in users_lines:
@@ -97,7 +97,7 @@ class userActivationFrame(tk.Frame):
         if validity[0] == True:
             with open("./data/registered_users.txt", "r+") as users_f:
                 users_lines = users_f.readlines()
-                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "0"
+                users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "0\n"
                 self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
 
                 for line in users_lines:
