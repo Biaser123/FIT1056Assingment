@@ -1,7 +1,7 @@
  
 import tkinter as tk
 from user import User
-from user import CodeVenture
+from authenticator import Authenticator
 
 class userActivationFrame(tk.Frame):
 
@@ -49,6 +49,22 @@ class userActivationFrame(tk.Frame):
                                  command=self.return_menu)
         return_to_menu_button.grid(row=6, columnspan=2, padx=10, pady=10)
 
+    def check_user_exists(self, user):
+        """
+        Logic for authenticating a login procedure
+        :param user: str - username entered by admin 
+        :return: [bool, user_obj]
+        """
+        autheticator = Authenticator()
+        existing_users = autheticator.users
+
+        for user_obj in existing_users:
+            if user_obj.get_username() == user:
+                return [True, user_obj]
+            else:
+                return [False, user_obj]
+
+
 
     def activate_user(self, user):
         '''
@@ -57,8 +73,13 @@ class userActivationFrame(tk.Frame):
         :param:
         user: user to activate
         '''
-        user.is_active = True
-        self.success_text.set(f"{user.get_username()}'s account has been activated")
+
+        validity = self.check_user_exists(user)
+        if validity[0] == True:
+            validity[1].is_active = True
+            self.success_text.set(f"{validity[1].get_username()}'s account has been activated")
+        else:
+            self.success_text.set(f"User has not been found.")
 
     def deactivate_user(self, user):
         '''
@@ -67,8 +88,12 @@ class userActivationFrame(tk.Frame):
         :param:
         user: user to deactivate
         '''
-        user.is_active = False
-        self.success_text.set(f"{user.get_username()}'s account has been deactivated")
+        validity = self.check_user_exists(user)
+        if validity[0] == True:
+            validity[1].is_active = True
+            self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
+        else:
+            self.success_text.set(f"User has not been found.")
 
     def return_menu(self):
         """
