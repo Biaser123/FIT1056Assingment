@@ -28,6 +28,9 @@ class LoginFrame(tk.Frame):
         super().__init__(master=master)
 
         # Logo image for the login page
+        self.grid_rowconfigure(0, weight=1,pad=1)
+        self.grid_rowconfigure(7, weight=1,pad=1)
+
         login_canvas = tk.Canvas(master=self, width=128, height=128)
         login_canvas.grid(row=0, column=1,columnspan=2, sticky="s", padx=10, pady=10)
         
@@ -203,7 +206,6 @@ class LoginFrame(tk.Frame):
         self.registration_window.grid_columnconfigure(0, weight=1)
         self.registration_window.grid_columnconfigure(1, weight=0)
         self.registration_window.grid_columnconfigure(2, weight=1)
-
 
         return_button = tk.Button(self.registration_window, text="Return", command=self.registration_page_close, width=10)
         return_button.grid(row=8,column=0, columnspan=3,padx=10, pady=10)
