@@ -8,12 +8,15 @@ class ChallengePage(tk.Frame):
         self.master = master
         self.student_page = student_page
 
-        for challenge in range(1,len(challenges)+1):
-            challenge_button = tk.Button(self, text =f"Challenge {challenge}", command= lambda m= f"Challenge {challenge}":self.open_challenge(m))
-            challenge_button.pack()
+        row_frame = tk.Frame(self)
+        row_frame.pack(side="top")
 
-        return_button = tk.Button(self, text="Return", command=self.return_page)
-        return_button.pack()
+        for challenge in range(1,len(challenges)+1):
+            challenge_button = tk.Button(row_frame, text =f"Challenge {challenge}", command= lambda m= f"Challenge {challenge}":self.open_challenge(m),font=(13),width=17,height=7,bg="lightyellow")
+            challenge_button.pack(side="left",padx=15)
+
+        return_button = tk.Button(self, text="Return", command=self.return_page, width=10,height=3, bg= "lightgray")
+        return_button.pack(pady=20)
 
     def open_challenge(self, challenge_selected):
         print(challenge_selected)
