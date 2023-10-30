@@ -42,12 +42,12 @@ class userActivationFrame(tk.Frame):
         # Message to appear once either button is clocked
         self.success_text = tk.StringVar()
         action_message = tk.Label(master=self, textvariable=self.success_text)
-        action_message.grid(row=4, columnspan=2, padx=10, pady=10)
+        action_message.grid(row=5, columnspan=2, padx=10, pady=10)
 
         # Button to return to menu
         return_to_menu_button = tk.Button(master=self, text="Back",
                                  command=self.return_menu)
-        return_to_menu_button.grid(row=6, columnspan=2, padx=10, pady=10)
+        return_to_menu_button.grid(row=7, columnspan=2, padx=10, pady=10)
 
     def check_user_exists(self, user):
         """
