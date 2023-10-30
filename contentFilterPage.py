@@ -1,21 +1,20 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
-
+filename = "data/forum_data.txt"
 class PostFilter(tk.Frame):
     def __init__(self, master, user, return_page):
         super().__init__(master)
         self.master = master
         self.user = user
         self.return_page =return_page
-        self.filename = ""
+        self.filename = filename
         self.bad_words = []
         
 
-        self.load_button = tk.Button(self, text="Load .txt File", command=self.load_file)
-        self.load_button.pack(pady=20)
-
-        self.file_label = tk.Label(self, text="No file loaded.")
+        # Label to display the file name
+        self.file_label = tk.Label(self, text=f"Processing file: {filename}")
         self.file_label.pack(pady=10)
+
 
         self.bad_word_label = tk.Label(self, text="Add Bad Word:")
         self.bad_word_label.pack(pady=10)
@@ -31,12 +30,6 @@ class PostFilter(tk.Frame):
 
         self.return_button = tk.Button(self, text= "Return",command= self.return_to_previous )
         self.return_button.pack(pady=20)
-
-    def load_file(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])
-        if file_path:
-            self.filename = file_path
-            self.file_label.config(text=file_path)
 
     def add_bad_word(self):
         word = self.bad_word_entry.get()
@@ -61,6 +54,9 @@ class PostFilter(tk.Frame):
             file.write('\n'.join(filtered_lines))
 
         messagebox.showinfo("Success", "Posts filtered successfully!")
+
+        self.bad_words.clear()
+        self.bad_word_entry.delete(0, tk.END)
 
     def return_to_previous(self):
         self.place_forget()
