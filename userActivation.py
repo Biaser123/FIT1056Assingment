@@ -53,7 +53,7 @@ class userActivationFrame(tk.Frame):
         """
         Logic for authenticating a login procedure
         :param user: str - username entered by admin 
-        :return: [bool, user_obj]
+        :return: [bool, user_obj, index of object in user list]
         """
         autheticator = Authenticator()
         existing_users = autheticator.users
@@ -80,6 +80,9 @@ class userActivationFrame(tk.Frame):
                 users_lines = users_f.readlines()
                 users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "1"
                 self.success_text.set(f"{validity[1].get_username()}'s account has been activated")
+
+                for line in users_lines:
+                    users_f.write(line)
         else:
             self.success_text.set(f"User has not been found.")
 
@@ -96,6 +99,9 @@ class userActivationFrame(tk.Frame):
                 users_lines = users_f.readlines()
                 users_lines[validity[2]] = users_lines[validity[2]][0:-1] + "0"
                 self.success_text.set(f"{validity[1].get_username()}'s account has been deactivated")
+
+                for line in users_lines:
+                    users_f.write(line)
         else:
             self.success_text.set(f"User has not been found.")
 

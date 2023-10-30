@@ -2,4 +2,3 @@ admin,admin,asdf,adf,asdfa,Admin,1
 student,student,123,132,@qs,Student,1
 teacher,teacher,teacher,teacher,@qs,Teacher,1
 testing,123,testing1,test,testing@test.com,Student,1
-
