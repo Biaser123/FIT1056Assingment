@@ -65,4 +65,5 @@ class AdminFrame(MainPageFrame):
 
     def user_activation(self):
         self.place_forget()
-        
+        # activation_page =  
+        activation_page.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
